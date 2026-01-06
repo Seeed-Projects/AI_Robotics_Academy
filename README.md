@@ -7,7 +7,7 @@
   
   > *"The science of today is the technology of tomorrow." - Edward Teller*
 
-  [English](#-english) | [中文](#-中文)
+  [English](#-english) | [中文](README_CN.md)
 </div>
 
 ---
