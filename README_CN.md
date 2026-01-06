@@ -2,60 +2,10 @@
 
 欢迎来到 Seeed Studio 机器人技术仓库。这里汇集了我们的机器人硬件套件、执行器、传感器的详细文档，以及全新推出的机器人学院学习课程。
 
-### 📚 目录
-- [📦 硬件 Wiki](#-硬件-wiki)
-  - [机器人套件](#机器人套件)
-  - [执行器与电机](#执行器与电机)
-  - [传感器](#传感器)
-  - [软件生态](#软件生态)
-- [🎓 机器人学院](#-机器人学院)
-  - [核心软件与仿真](#核心软件与仿真)
-  - [机器人应用](#机器人应用)
-
----
-
 ### 📦 硬件 Wiki
 
 提供机器人硬件的详细指南、数据手册和设置教程。
-
-#### <a id="机器人套件"></a>🤖 机器人套件 (Robot Kits)
-| 分类 | 产品 / 指南 | 状态 |
-| :--- | :--- | :--- |
-| **🤗 SO-Arm** | [SO100/101 机械臂](/lerobot_so100m_new/) | |
-| | [SO10x 机械臂 (LeIsaac)](/simulate_soarm101_by_leisaac/) | |
-| | [Phospho Lerobot 控制](/control_robotic_arm_via_phospho/) | |
-| | [So Arm 强化学习训练](/training_soarm101_policy_with_isaacLab/) | 🔥 新品 |
-| | [SO101 适配 NVIDIA GR00T](/fine_tune_gr00t_n1.5_for_lerobot_so_arm_and_deploy_on_jetson_thor/) | 🔥 新品 |
-| **🚗 Lekiwi** | [Lekiwi 移动底盘](/lerobot_lekiwi/) | |
-| | [Lekiwi 声源跟随](/sound_follow_robot/) | |
-| **🦾 StarAI Arm** | [StarAI 机械臂](/lerobot_starai_arm/) | 🔥 新品 |
-| | [StarAI Arm MoveIt 2 配置](/starai_arm_ros_moveit/) | 🔥 新品 |
-| | [StarAI 适配 NVIDIA GR00T](/control_robotic_arm_via_gr00t) | |
-| **🦿 轮足机器人** | [迷你轮足机器人](/StackForce_Mini_Wheeled_Legged_Robot) | 🔥 新品 |
-| **🖐️ 灵巧手** | [AmazingHand](/hand_amazinghand/) | 🔥 新品 |
-| **🦀 末端执行器** | [DM 夹爪](/dm_gripper/) | 🔥 新品 |
-
-#### <a id="执行器与电机"></a>⚙️ 执行器与电机 (Actuators)
-*   **系列:** [MyActuator X 系列](/myactuator_series/) | [大妙 DM43 系列](/damiao_series/) | [HighTorque 系列](/hightorque_control) | [Fashionstar 系列](/fashionstar_servo/) | [Stackforce 系列](/stackforce_series/)
-*   **特定型号:** [飞特 STS3215 舵机](/feetech_servo/)
-*   **控制算法:** [RobStride 控制](/robstride_control/) (🔥 新品)
-
-#### <a id="传感器"></a>👁️ 传感器 (Sensors)
-*   **📡 激光雷达 (LiDAR):** [速腾聚创 (RoboSense)](/robosense_lidar/) | [MID360](/mid360/) | [思岚 (Slamtec)](/slamtec/) | [A-LOAM 算法](/a_loam/)
-*   **📷 摄像头 (Camera):** 
-    *   [奥比中光 Gemini 2](/orbbec_gemini2/) | [Gemini 335Lg Depth](/orbbec_gemini_335lg) (🔥 新品) | [Gemini 336 Depth](/orbbec_gemini336) (🔥 新品)
-    *   [RoboSense AC1](/ac1) (🔥 新品) | [森云 GMSL2](/sensing_gmsl_cameras)
-    *   **集成应用:** [Orbbec ROS 适配](/orbbec_depth_camera_on_ros/) | [ORB-SLAM3](/orb_slam3_orbbec_gemini2/) | [PyCuVSLAM](/pycuvslam_recomputer_robotics/)
-*   **🎤 语音 (Voice):** [ReSpeaker Core v2.0](/ReSpeaker_Core_v2.0/) | [ReSpeaker Mic Array v2.0](/ReSpeaker_Mic_Array_v2.0/)
-*   **🧭 IMU:** [HEXFELLOW Y200](/hexfellow_y200/) | [WHEELTEC IMU](/wheeltec_imu/)
-
-#### <a id="软件生态"></a>💻 软件生态 (Software)
-*   **ROS:** [ROS 1 安装](/installing_ros1/) | [ROS 2 Humble 安装](/install_ros2_humble/)
-*   **NVIDIA Isaac:** [Isaac ROS 安装](/install_isaacros/) | [Isaac Lab 安装](/install_isaaclab/) | [Isaac Sim 仿真](/simulate_soarm101_by_leisaac/)
-*   **算法:** [Isaac ROS AprilTag](/isaac_ros_apriltag/) | [Isaac ROS V-SLAM](/isaac_ros_visual_slam/)
-*   **PX4:** [Jetson 适配 PX4](/control_px4_with_recomputer_jetson/) | [目标追踪 (PX4)](/object_tracking_with_reComputer_jetson_and_pX4/)
-
----
+[Seeedstudio Wiki](https://wiki.seeedstudio.com/robotics_page/)
 
 ### 🎓 机器人学院 (Robotics Academy)
 
