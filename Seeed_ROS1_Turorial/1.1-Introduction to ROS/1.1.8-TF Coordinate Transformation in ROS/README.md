@@ -18,10 +18,12 @@ Key Knowledge Points:
 
 ## 3. The "Standard Coordinate Frame Suite" in ROS
 
-  <div align="center">
-      <img width={400} 
-      src="./images/Mermaid.png" />
-  </div>
+<p align="center">
+  <a>
+    <img src="./images/Mermaid.png" width="400" height="auto">
+  </a>
+</p>
+
 
 ### map (Map Coordinate Frame)
 - **Role**: The absolute center of the world, a god's-eye view.
@@ -104,7 +106,14 @@ source devel/setup.bash
 **Task**: Tell ROS the position of `radar_link`.
 **Logic**: Update the angle of `radar_link` relative to `base_link` every 0.1 seconds.
 
-Create a new file `tf_broadcaster.py` under `src/`:
+Create a new file `tf_broadcaster.py` under `learning_tf/src/`:
+
+```
+cd ~/catkin_ws/src/learning_tf/src/
+touch tf_broadcaster.py
+```
+
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -154,7 +163,14 @@ if __name__ == '__main__':
 **Task**: Assume the LiDAR detects an obstacle **2 meters ahead of the LiDAR**. What is the position of this obstacle relative to the **robot's base**?
 **Logic**: Listen to the TF tree, obtain the current relationship, and perform mathematical transformation.
 
-Create a new file `tf_listener.py` under `src/`:
+Create a new file `tf_listener.py` under `learning_tf/src/`:
+
+```
+cd ~/catkin_ws/src/learning_tf/src/
+touch tf_listener.py
+```
+
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -212,6 +228,22 @@ Grant execution permissions to the scripts:
 chmod +x src/tf_broadcaster.py src/tf_listener.py
 ```
 
+Add the following code to the `CMakeLists.txt` file in the parent directory:
+```cmake
+catkin_install_python(PROGRAMS
+  src/tf_broadcaster.py
+  src/tf_listener.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+```
+
+Compile the workspace:
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+```
+
 ### 1. Launch Terminal A (Core)
 ```bash
 roscore
@@ -232,6 +264,14 @@ rosrun rviz rviz
 2.  Click the **Add** button at the bottom left -> select **`TF`**.
 3.  You will see two coordinate axes in the center of the screen, where one (`radar_link`) is **rotating** around the other (`base_link`)!
 4.  Check the `Show Names` option in the TF properties to clearly view the frame names.
+
+<p align="center">
+  <a>
+    <img src="./images/rviz_result.png" width="400" height="auto">
+  </a>
+</p>
+
+
 
 ### 4. Launch Terminal D (Listener)
 ```bash
@@ -257,6 +297,12 @@ Teach them these two commands—they are indispensable for troubleshooting later
     rosrun tf tf_echo base_link radar_link
     ```
     *Explanation: You will see that the Translation (1, 0, 0.5) is basically unchanged, but the Rotation is fluctuating rapidly.*
+
+<p align="center">
+  <a>
+    <img src="./images/tf_result.png" width="400" height="auto">
+  </a>
+</p>
 
 ---
 

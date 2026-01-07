@@ -112,9 +112,11 @@ The ROS Master helps establish connections between Talkers and Listeners. Here's
     target_link_libraries(listener ${catkin_LIBRARIES})
     target_link_libraries(talker ${catkin_LIBRARIES})
     ```
+
+
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/CMakeLists.png" alt="J3010">
+      <img src="./images/CMakeLists.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
 
@@ -133,13 +135,13 @@ The ROS Master helps establish connections between Talkers and Listeners. Here's
     ```
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/run_listener_and_talker.png" alt="J3010">
+      <img src="./images/run_listener_and_talker.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
 
       <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/run_listener_and_talker_result.png" alt="J3010">
+      <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
     
@@ -278,7 +280,7 @@ The communication process can be illustrated as follows:
 
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/Service.png" alt="J3010">
+      <img src="./images/Service.png" alt="J3010"  width="600" height="auto">
     </a>
 
 **Key Points**:
@@ -364,7 +366,7 @@ Let's dive into a hands-on example where we create a custom service that sums tw
     ```
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/package_xml.png" alt="J3010">
+      <img src="./images/package_xml.png" alt="J3010"  width="600" height="auto">
     </a>
 
 3. **Update CMakeLists.txt**:
@@ -508,7 +510,7 @@ rosrun service_communication client 1 5
 
 <p align="center">
   <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-  <img src="./images/run_service_c.png" alt="J3010">
+  <img src="./images/run_service_c.png" alt="J3010"   width="600" height="auto">
   </a>
 </p>
 
@@ -640,7 +642,7 @@ The process of interacting with the Parameter Server typically involves the foll
 
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/Parameter_Server.png" alt="J3010">
+      <img src="./images/Parameter_Server.png" alt="J3010"  width="600" height="auto">
     </a>
 
 **Supported Data Types**:

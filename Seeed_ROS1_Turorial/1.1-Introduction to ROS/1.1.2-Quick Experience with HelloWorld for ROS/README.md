@@ -61,10 +61,12 @@ The main difference between C++ and Python lies in steps 3 and 4. The following 
 
         return 0;
     }
+
+
     ```
       <p align="center">
         <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-        <img src="./images/hello_world_c.png" alt="J3010">
+        <img src="./images/hello_world_c.png" alt="J3010" width="600" height="auto">
         </a>
       </p>
 
@@ -82,13 +84,13 @@ The main difference between C++ and Python lies in steps 3 and 4. The following 
       ```
       <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/cmakelists_dir.png" alt="J3010">
+      <img src="./images/cmakelists_dir.png" alt="J3010"width="600" height="auto">
       </a>
       </p>
 
       <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/cmakelists.png" alt="J3010">
+      <img src="./images/cmakelists.png" alt="J3010" width="600" height="auto">
       </a>
       </p>
 
@@ -124,7 +126,7 @@ The main difference between C++ and Python lies in steps 3 and 4. The following 
     ```
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/hello_world_result_c.png" alt="J3010">
+      <img src="./images/hello_world_result_c.png" alt="J3010" width="600" height="auto">
       </a>
     </p>
 
@@ -191,7 +193,7 @@ You should see the output: `Hello World!`
     ```
     <p align="center">
       <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-      <img src="./images/cmakelists_dir.png" alt="J3010">
+      <img src="./images/cmakelists_dir.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
 6. **Compile the Workspace**

@@ -17,10 +17,11 @@
 
 ## 3. ROS中的“标准坐标系全家桶”
 
-  <div align="center">
-      <img width={400} 
-      src="./images/Mermaid_CN.png" />
-  </div>
+<p align="center">
+  <a>
+    <img src="./images/Mermaid_cn.png" width="400" height="auto">
+  </a>
+</p>
 
 
 *   **`map` (地图坐标系)**
@@ -103,7 +104,12 @@ source devel/setup.bash
 **任务：** 告诉ROS，`radar_link` 在哪。
 **逻辑：** 每隔0.1秒，更新一次 `radar_link` 相对于 `base_link` 的角度。
 
-在 `src/` 下新建 `tf_broadcaster.py`：
+在 `learning_tf/src/` 下新建 `tf_broadcaster.py`：
+
+```
+cd ~/catkin_ws/src/learning_tf/src/
+touch tf_broadcaster.py
+```
 
 ```python
 #!/usr/bin/env python
@@ -153,7 +159,12 @@ if __name__ == '__main__':
 **任务：** 假设雷达检测到了一个障碍物，坐标是 **雷达前方 2米**。请问这个障碍物在 **机器人基座** 看来，在哪里？
 **逻辑：** 监听TF树，获取当前关系，进行数学变换。
 
-在 `src/` 下新建 `tf_listener.py`：
+在 `learning_tf/src/` 下新建 `tf_listener.py`：
+```
+cd ~/catkin_ws/src/learning_tf/src/
+touch tf_listener.py
+```
+
 
 ```python
 #!/usr/bin/env python
@@ -209,7 +220,24 @@ if __name__ == '__main__':
 
 给脚本加权限：
 ```bash
-chmod +x src/tf_broadcaster.py src/tf_listener.py
+chmod +x ~/catkin_ws/src/learning_tf/src/tf_broadcaster.py ~/catkin_ws/src/learning_tf/src/tf_listener.py
+```
+
+把如下代码加入到上一级目录的`CMakeLists.txt`中
+
+```bash
+catkin_install_python(PROGRAMS
+  src/tf_broadcaster.py
+  src/tf_listener.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+```
+
+编译工作空间
+```bash
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
 ```
 
 #### 1. 启动终端 A (Core)
@@ -232,6 +260,13 @@ rosrun rviz rviz
 2.  左下角 **Add** 按钮 -> 选择 **`TF`**。
 3.  你会看到屏幕中间有两个坐标轴，其中一个(`radar_link`) 正在围着另一个(`base_link`) **旋转**！
 4.  在 TF 属性里勾选 `Show Names`，能清楚看到名字。
+
+<p align="center">
+  <a>
+    <img src="./images/rviz_result.png" width="400" height="auto">
+  </a>
+</p>
+
 
 #### 4. 启动终端 D (Listener)
 ```bash
@@ -258,7 +293,12 @@ rosrun learning_tf tf_listener.py
     ```
     *解释：你会看到 Translation (1, 0, 0.5) 基本不变，但 Rotation 在疯狂跳动。*
 
----
+
+<p align="center">
+  <a>
+    <img src="./images/tf_result.png" width="400" height="auto">
+  </a>
+</p>
 
 
 ## 总结

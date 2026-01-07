@@ -11,7 +11,7 @@ To follow this tutorial, you will need the following hardware and software:
 - **Software:** Jetpack 5.1.x, Ubuntu 20.04, ROS Noetic, Python and C++.
 <p align="center">
   <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
-    <img src="https://files.seeedstudio.com/wiki/reComputer-J4012/5.png" alt="J3010" width="800" height="auto">
+    <img src="https://files.seeedstudio.com/wiki/reComputer-J4012/5.png" alt="J3010" width="600" height="auto">
   </a>
 </p>
 
@@ -24,7 +24,7 @@ ROS (Robot Operating System) is an open-source framework for robot software deve
 - **ROS system (ROS):** The plumbing system that handles communication between processes. It is the middleware that allows different robot parts to communicate with each other.
 - **ROS packages:** Libraries and tools needed to write robot applications.
 <p align="center">
-  <a href="https://www.ros.org/blog/ecosystem/">
+  <a>
     <img src="https://www.ros.org/imgs/ros-equation.png" alt="ros"  width="800" height="auto">
   </a>
 </p>
@@ -46,7 +46,7 @@ ROS simplifies the process of creating complex and robust robot behavior across 
 The history of ROS (Robot Operating System) is intertwined with the broader evolution of robotics:
 
 <p align="center">
-  <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+  <a>
     <img src="./images/Development-history-of-mobile-robot.png" alt="ros"  width="800" height="auto">
   </a>
 </p>
@@ -154,10 +154,12 @@ Today, ROS is maintained by Open Robotics, a non-profit organization dedicated t
   ```bash
   roscore
   ```
-  <div align="center">
-      <img width={800} 
-      src="https://files.seeedstudio.com/wiki/robotics/software/install_ros1/fig2.png" />
-  </div>
+
+<p align="center">
+  <a>
+    <img src="https://files.seeedstudio.com/wiki/robotics/software/install_ros1/fig2.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
 
 ### Quick Start with ROS
 
@@ -200,10 +202,12 @@ This quick demo shows a graphical turtle robot that you can control using the ke
 1. **For the installation of VSCode, please refer to the previous tutorial: [3.1-Python and Programming Fundamentals](https://github.com/Seeed-Projects/reComputer-Jetson-for-Beginners/blob/main/3-Basic-Tools-and-Getting-Started/3.1-Python-and-Programming-Fundamentals/README.md)**
 
 2. **Install tools such as `Python`, `ROS`, `C++`, and `CMake Tools` from the VSCode Extensions Marketplace.**
-    <div align="center">
-        <img width={400}
-        src="./images/vscode_plugs.png" />
-    </div>
+
+<p align="center">
+  <a">
+    <img src="./images/vscode_plugs.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
 
 #### Install the Terminator multi-functional terminal.
 1. **Install**
@@ -211,10 +215,13 @@ This quick demo shows a graphical turtle robot that you can control using the ke
     sudo apt-get update
    sudo apt install terminator
    ```
-    <div align="center">
-        <img width={400} 
-        src="./images/terminator.png" />
-    </div>
+
+<p align="center">
+  <a">
+    <img src="./images/terminator.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
+
 
 2. **Show Applications ---> Search for "Terminator" ---> Right-click and select "Add to Favorites"**
 
