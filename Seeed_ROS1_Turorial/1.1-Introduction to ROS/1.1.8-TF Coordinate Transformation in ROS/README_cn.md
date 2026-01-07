@@ -224,7 +224,6 @@ rosrun learning_tf tf_broadcaster.py
 *此时，你的电脑里已经有了一个虚拟的旋转雷达。*
 
 #### 3. 启动终端 C (Rviz 可视化)
-这是让学生直观感受的最强工具。
 ```bash
 rosrun rviz rviz
 ```

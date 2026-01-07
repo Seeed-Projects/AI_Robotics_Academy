@@ -224,7 +224,6 @@ rosrun learning_tf tf_broadcaster.py
 *At this point, you have a virtual rotating LiDAR running on your computer.*
 
 ### 3. Launch Terminal C (Rviz Visualization)
-This is the most powerful tool for students to visualize the concept intuitively.
 ```bash
 rosrun rviz rviz
 ```
