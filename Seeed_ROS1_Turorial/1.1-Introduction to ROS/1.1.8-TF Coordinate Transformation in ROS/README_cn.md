@@ -19,7 +19,7 @@
 
   <div align="center">
       <img width={400} 
-      src="./images/Mermaid_cn.png" />
+      src="./images/Mermaid_CN.png" />
   </div>
 
 
