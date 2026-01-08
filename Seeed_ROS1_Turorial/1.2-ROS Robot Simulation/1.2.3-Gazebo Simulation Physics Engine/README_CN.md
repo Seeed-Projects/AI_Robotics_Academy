@@ -113,7 +113,6 @@
                 <sphere radius="0.001"/>
             </geometry>
         </visual>
-        <!-- [重要修复] 给根节点加微小惯性，防止Gazebo报错把整个车删掉 -->
         <inertial>
             <mass value="0.0001"/>
             <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>

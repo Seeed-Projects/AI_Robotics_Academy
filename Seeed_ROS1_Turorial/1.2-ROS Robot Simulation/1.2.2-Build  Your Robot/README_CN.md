@@ -39,7 +39,16 @@
 
     <!-- =========== 2. Base Footprint =========== -->
     <!-- 这是一个虚拟点，贴在地面上，是机器人的原点 -->
-    <link name="base_footprint"/>
+        <link name="base_footprint">
+        <visual>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+        <inertial>
+            <mass value="0.0001"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+        </inertial>
 
     <joint name="base_joint" type="fixed">
         <parent link="base_footprint"/>
@@ -236,7 +245,16 @@ roslaunch robot_modeling view_car.launch
 
     <!-- =========== 2. Base Footprint =========== -->
     <!-- 这是一个虚拟点，贴在地面上，是机器人的原点 -->
-    <link name="base_footprint"/>
+    <link name="base_footprint">
+    <visual>
+        <geometry>
+            <sphere radius="0.001"/>
+        </geometry>
+    </visual>
+    <inertial>
+        <mass value="0.0001"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
 
     <joint name="base_joint" type="fixed">
         <parent link="base_footprint"/>
