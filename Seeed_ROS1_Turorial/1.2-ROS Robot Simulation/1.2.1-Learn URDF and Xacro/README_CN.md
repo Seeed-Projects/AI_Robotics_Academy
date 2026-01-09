@@ -1,13 +1,6 @@
 
----
 
-
-
-
-# 第一部分：URDF 与 Xacro 的初体验
-
-在机器人开发领域，直接在实体硬件上开发代码往往面临着“高成本、高风险、低效率”的困境。为了解决“买不起昂贵机器人”、“测试环境难以搭建”以及“代码BUG导致炸机”等痛点，仿真（Simulation） 成为了ROS开发中不可或缺的一环。
-本节将带你理解ROS仿真的核心逻辑，并介绍构建虚拟机器人世界的三大基石：URDF、Rviz 与 Gazebo。
+# URDF 初体验
 
 先准备好工作空间：
 ```bash
@@ -34,7 +27,6 @@ URDF (Unified Robot Description Format) 是 ROS 的标准格式，它像 **HTML*
 *   父子关系明确：一个 Parent 可以有多个 Child，但一个 Child 只能有一个 Parent。
 
 
-
 ### A. Link 的“三位一体”
 一个完善的 Link 定义包含三个部分，缺一不可（特别是为了 Gazebo 仿真）：
 
@@ -48,6 +40,135 @@ URDF (Unified Robot Description Format) 是 ROS 的标准格式，它像 **HTML*
 *   **Continuous (连续旋转)：** 可以无限旋转（例如：小车的轮子）。
 *   **Revolute (有限旋转)：** 有角度限制的旋转（例如：机械臂的关节，范围 -90° 到 +90°）。
 *   **Prismatic (平移)：** 直线滑动（例如：抽屉、升降梯）。
+
+## 1.2 URDF基本语法
+
+-  根标签：`<robot>`
+
+每一个URDF文件都必须遵循XML的标准规范。就像HTML文件以`<html>`开头一样，URDF文件必须包含一个根标签。
+
+*   **作用**：定义机器人的作用域，所有关于机器人的描述（连杆、关节、传动等）都必须写在这个标签内部。
+*   **核心属性**：
+    *   `name`：给你的机器人起个名字（必须属性）。
+
+**代码示例：**
+```xml
+<robot name="my_first_robot">
+    <!-- 所有的机器人部件定义都写在这里 -->
+</robot>
+```
+
+### 1.2.1 刚体描述：`<link>`
+
+- `<link>` 标签代表机器人的**刚体部件**。
+*   **比喻**：如果你在搭乐高，一个`<link>`就是一个乐高积木块（比如底盘、轮子、机械臂的一节、激光雷达）。
+*   **特性**：它是刚性的，不可形变。
+
+- `<visual>`：给机器人“穿皮肤”
+在`<link>`标签下，最重要的子标签是`<visual>`。它决定了机器人在Rviz中**看起来是什么样子的**。
+*   **注意**：`<visual>`的数据只用于显示，不参与物理引擎的碰撞计算。
+
+- `<geometry>` (形状)
+这是`<visual>`的核心，用来定义几何形状。URDF支持以下几种基础形状：
+
+| 形状标签 | 属性说明 | 示例 |
+| :--- | :--- | :--- |
+| **box** (长方体) | `size="长 宽 高"` (x y z) | `<box size="0.5 0.3 0.1" />` |
+| **cylinder** (圆柱) | `radius="半径" length="高度"` | `<cylinder radius="0.1" length="0.2" />` |
+| **sphere** (球体) | `radius="半径"` | `<sphere radius="0.1" />` |
+| **mesh** (模型文件) | `filename="路径"` (加载皮肤) | `filename="package://包名/路径/xxx.dae"` |
+
+- `<origin>` (姿态偏移)
+决定了**形状中心**相对于**连杆坐标系中心**的位置。
+*   `xyz`：在x, y, z轴上的位移（米）。
+*   `rpy`：绕x, y, z轴的旋转弧度（Roll, Pitch, Yaw）。
+    *   *注：3.14弧度 ≈ 180度。*
+
+-  `<material>` (颜色/材质)
+给形状上色。
+*   `rgba`：红(R)、绿(G)、蓝(B)、透明度(A)。数值范围均为 **0到1**。
+    *   例：`1 0 0 1` 是纯红色，不透明。
+
+#### 示例
+```xml
+<link name="base_link">
+    <visual>
+        <!-- 1. 形状：长0.5 宽0.2 高0.1 的长方体 -->
+        <geometry>
+            <box size="0.5 0.2 0.1"/>
+        </geometry>
+        <!-- 2. 偏移：原地不动，不旋转 -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <!-- 3. 材质：蓝色 -->
+        <material name="blue_color">
+            <color rgba="0 0 1 1"/>
+        </material>
+    </visual>
+</link>
+```
+
+
+### 1.2.2 关节描述：`<joint>`
+
+- `<joint>` 标签用于描述两个`<link>`之间的**连接关系**和**运动规则**。
+*   **比喻**：如果`<link>`是骨头，那么`<joint>`就是肘关节或膝关节，或者是连接骨头的胶水。
+*   **结构树**：URDF采用树状结构，关节连接了“父连杆（Parent）”和“子连杆（Child）”。
+*   `name`：关节名称（必须唯一）。
+*   `type`：**这是最重要的属性**，决定了关节怎么动。
+
+| 关节类型 (type) | 运动描述 | 典型应用场景 |
+| :--- | :--- | :--- |
+| **fixed** | **固定**，完全不能动 | 激光雷达固定在底盘上 |
+| **continuous** | **连续旋转**，无角度限制 | 机器人的轮子 |
+| **revolute** | **旋转**，有角度限制 | 机械臂的关节、舵机 |
+| **prismatic** | **平移**，沿轴线滑动 | 抽屉、升降梯 |
+| **floating** | 浮动，6自由度 (较少用) | 无重力模拟 |
+| **planar** | 平面运动 (较少用) | 全向移动底座 |
+
+#### 核心子标签
+
+-  `<parent>` 和 `<child>` (必选)
+定义谁连着谁。
+```xml
+<parent link="base_link"/> <!-- 爸爸是底盘 -->
+<child link="camera_link"/> <!-- 儿子是摄像头 -->
+```
+
+- `<origin>` (相对位置)
+非常关键！它定义了**子连杆的坐标系原点**相对于**父连杆坐标系原点**的位置。
+*   比如：摄像头安装在底盘上方0.1米处，则 `xyz="0 0 0.1"`。
+
+-  `<axis>` (运动轴线)
+对于旋转或滑动关节，必须指定它是绕着哪个轴转动/移动的。
+*   `xyz`：归一化向量。
+    *   `0 0 1`：绕 Z 轴旋转（水平转动）。
+    *   `0 1 0`：绕 Y 轴旋转（车轮滚动通常是Y轴）。
+
+#### 示例
+```xml
+<joint name="base_to_camera" type="fixed">
+    <!-- 父子关系 -->
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    
+    <!-- 安装位置：在父级中心上方 0.1米，前方 0.05米处 -->
+    <origin xyz="0.05 0 0.1" rpy="0 0 0"/>
+    
+    <!-- 虽然是fixed，但为了语法完整性，某些解析器可能仍需要axis，通常设为z轴 -->
+    <axis xyz="0 0 1"/>
+</joint>
+```
+
+### 总结：URDF 建模的“套路”
+
+在ROS中构建机器人模型，其实就是不断重复以下过程：
+1.  **建刚体**：用 `<link>` 画出部件的样子。
+2.  **定关系**：用 `<joint>` 将这个部件“挂”到已有的部件上。
+3.  **设参数**：调整 `<origin>` 确保位置准确，设置 `type` 确保运动方式正确。
+
+> **提示**：`<collision>`（碰撞参数）和 `<inertial>`（惯性参数）在后续结合 Gazebo 物理仿真时才需要用到，单纯在 Rviz 中看模型时，仅配置 `<visual>` 即可。
+
+
 
 **体验案例 1：一个红色的盒子**
 请在 `~/catkin_ws/src/robot_modeling/urdf` 文件夹下新建 `01_simple_box.urdf`：
@@ -216,162 +337,3 @@ roslaunch urdf_tutorial display.launch model:=src/robot_modeling/urdf/02_sample_
 
 **思考：** 如果我想把盒子改成 0.5米，我需要改 3 个数字。如果是复杂的机器人，我要改几百个地方。
 
----
-
-## 1.2 什么是 Xacro？（变量的魔法）
-
-原生的 URDF 是纯 XML 文件，写起来非常痛苦。
-*   **痛点1（无变量）：** 如果你想把车身长度从 0.5 改成 0.6，你需要手动修改几十个地方（包括位置计算、碰撞体积等）。
-*   **痛点2（高冗余）：** 左轮和右轮的代码 99% 是一样的，仅仅是坐标的 Y 值一正一负，但你必须复制粘贴写两遍。
-
-**解决方案：Xacro (XML Macros)**
-Xacro 是 URDF 的“升级版”或“预处理器”。它支持：
-1.  **Property（变量）：** 定义常量，一处修改，全局生效。
-2.  **Macro（宏/函数）：** 把重复的代码封装成函数，调用时传入参数即可。
-3.  **Math（数学计算）：** 支持加减乘除，自动计算坐标偏移。
-
-**体验案例 1：可变大小的盒子**
-在 `urdf` 文件夹下新建 `01_simple_box.xacro`：
-```xml
-<?xml version="1.0"?>
-<robot name="simple_box_xacro" xmlns:xacro="http://www.ros.org/wiki/xacro">
-    
-    <!-- 1. 定义变量：我想改大小，只改这里 -->
-    <xacro:property name="box_size" value="0.5" />
-    
-    <link name="base_link">
-        <visual>
-            <geometry>
-                <!-- 2. 调用变量 -->
-                <box size="${box_size} ${box_size} ${box_size}"/>
-            </geometry>
-            <material name="blue">
-                <color rgba="0 0 1 1"/>
-            </material>
-        </visual>
-    </link>
-</robot>
-```
-
-**查看效果：**
-ROS 不能直接读取 `.xacro`，需要先转换。但在 Launch 文件中可以自动转换。
-```bash
-roslaunch urdf_tutorial display.launch model:=src/robot_modeling/urdf/01_simple_box.xacro
-```
-
-<p align="center">
-  <a>
-    <img src="./images/01_link_xacro.png" width="600" height="auto">
-  </a>
-</p>
-
-
-**现象：** 你会看到一个变大了的蓝色盒子。学员可以尝试修改 `value="0.5"`，不用改下面的代码，模型就会变。
-
-
-**体验案例 1：Xacro体验不同Joint**
-#### 1. 编写代码
-请在 `urdf` 文件夹下新建文件 `02_joints_demo.xacro`：
-
-```xml
-<?xml version="1.0"?>
-<robot name="joint_lab" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-    <!-- 颜色定义 -->
-    <material name="blue"><color rgba="0 0 0.8 1"/></material>
-    <material name="red"><color rgba="1 0 0 1"/></material>
-    <material name="green"><color rgba="0 1 0 1"/></material>
-    <material name="white"><color rgba="1 1 1 1"/></material>
-
-    <!-- 1. 底座 (不可动) -->
-    <link name="base_link">
-        <visual>
-            <geometry><box size="0.2 0.2 0.1"/></geometry>
-            <material name="white"/>
-        </visual>
-    </link>
-
-    <!-- ========================================== -->
-    <!-- 演示 1: Prismatic Joint (直线滑动 - 升降柱) -->
-    <!-- ========================================== -->
-    <link name="slide_pole">
-        <visual>
-            <geometry><cylinder radius="0.02" length="0.3"/></geometry>
-            <origin xyz="0 0 0.15" rpy="0 0 0"/> <!-- 把圆柱向上提，让底端对齐原点 -->
-            <material name="blue"/>
-        </visual>
-    </link>
-
-    <joint name="elevator_joint" type="prismatic">
-        <parent link="base_link"/>
-        <child link="slide_pole"/>
-        <origin xyz="0 0 0.05" rpy="0 0 0"/>
-        
-        <!-- 重点：axis 决定沿哪个轴滑动 (这里是 Z 轴) -->
-        <axis xyz="0 0 1"/> 
-        
-        <!-- 重点：limit 必须写 (单位：米) -->
-        <!-- lower: 最低点, upper: 最高点 -->
-        <limit lower="0.0" upper="0.5" effort="10" velocity="1"/>
-    </joint>
-
-    <!-- ========================================== -->
-    <!-- 演示 2: Continuous Joint (无限旋转 - 旋转台) -->
-    <!-- ========================================== -->
-    <link name="turntable">
-        <visual>
-            <geometry><cylinder radius="0.08" length="0.02"/></geometry>
-            <material name="red"/>
-        </visual>
-    </link>
-
-    <joint name="spinner_joint" type="continuous">
-        <parent link="slide_pole"/>
-        <child link="turntable"/>
-        <!-- 安装在升降柱的顶部 (0.3米处) -->
-        <origin xyz="0 0 0.3" rpy="0 0 0"/>
-        
-        <!-- 绕 Z 轴旋转 -->
-        <axis xyz="0 0 1"/>
-    </joint>
-
-    <!-- ========================================== -->
-    <!-- 演示 3: Revolute Joint (有限旋转 - 摆臂) -->
-    <!-- ========================================== -->
-    <link name="swing_arm">
-        <visual>
-            <geometry><box size="0.3 0.04 0.04"/></geometry>
-            <!-- 偏移 x=0.15，让转轴在长方体的一端，而不是中间 -->
-            <origin xyz="0.15 0 0" rpy="0 0 0"/>
-            <material name="green"/>
-        </visual>
-    </link>
-
-    <joint name="elbow_joint" type="revolute">
-        <parent link="turntable"/>
-        <child link="swing_arm"/>
-        <origin xyz="0 0 0.02" rpy="0 0 0"/>
-        
-        <!-- 绕 Y 轴旋转 (点头动作) -->
-        <axis xyz="0 1 0"/>
-        
-        <!-- 重点：limit 必须写 (单位：弧度) -->
-        <!-- -1.57 rad 约等于 -90度, 1.57 rad 约等于 +90度 -->
-        <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
-    </joint>
-
-</robot>
-```
-
-#### 2. 运行与体验
-
-在终端中运行：
-```bash
-roslaunch urdf_tutorial display.launch model:=src/robot_modeling/urdf/02_joints_demo.xacro
-```
-
-<p align="center">
-  <a>
-    <img src="./images/02_joint_sample.png" width="600" height="auto">
-  </a>
-</p>
