@@ -1,7 +1,21 @@
 # Chapter 2: ROS Robot Simulation - Opening the Virtual World
 
 In robot development, running code directly on physical hardware often leads to high costs, high risks, and low efficiency. To solve the pain points of expensive hardware, fear of crashes, and limited testing environments, **Simulation** has become an indispensable part of ROS development.
-Before starting this course, please ensure that you have completed the ROS Basic Introduction Course, as this will help you learn robot simulation more efficiently.
+Before starting this course, please ensure that you have completed the ["ROS Basics 8 lectures"](../1.%20ROS%20Basics%208%20lectures/README.md), as this will help you learn robot simulation more efficiently.
+
+
+## Course Directory
+
+| Chapter | Title | Core Content | Quick Link |
+| :--- | :--- | :--- | :--- |
+| **01** | **First Experience with URDF** | Learn the standard robot modeling format; understand Links and Joints. | [View Details](./2.1-Learn%20URDF/README.md) |
+| **02** | **First Experience with Xacro** | Use macro definitions and variables to optimize XML code, improving modeling efficiency and reusability. | [View Details](./2.2-Learn%20Xacro/README.md) |
+| **03** | **Build Your Own Differential Drive Robot** | Hands-on practice: Step-by-step construction of a differential drive car with wheels, Lidar, and a camera. | [View Details](./2.3-Build%20%20Your%20Robot/README.md) |
+| **04** | **Configuring the Physics Engine** | Import models into Gazebo; configure collision properties, gravity, and transmission system controls. | [View Details](./2.4-Gazebo%20Simulation%20Physics%20Engine/README.md) |
+| **05** | **SLAM Mapping Principles** | Practical session on Simultaneous Localization and Mapping; generate environment maps using algorithms like Gmapping. | [View Details](./2.5-Robot%20Mapping/README.md) |
+| **06** | **AMCL Localization** | Practical session on Monte Carlo Localization; teach the robot how to determine its position on the map. | [View Details](./2.6-Robot%20Location/README.md) |
+| **07** | **Robot Path Planning** | Configure the `move_base` navigation stack to achieve autonomous obstacle avoidance and point-to-point path planning. | [View Details](./2.7-Robot%20Navigation/README.md) |
+
 ---
 
 ### 1.1 Why Simulation?

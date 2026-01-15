@@ -21,7 +21,7 @@ Understanding how data flows inside `move_base` is key to troubleshooting:
 
 <p align="center">
   <a>
-    <img src="./images/move_base_logic_zh.png" width="600" height="auto">
+    <img src="./images/move_base_logic_en.png" width="600" height="auto">
   </a>
 </p>
 
