@@ -177,7 +177,7 @@ ROS（机器人操作系统）的历史与机器人技术的整体演进交织�
    rosrun turtlesim turtle_teleop_key
    ```
   <div align="center">
-      <img width={400} 
+      <img width={600} 
       src="./images/turtle.png" />
   </div>
 

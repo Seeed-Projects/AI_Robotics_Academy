@@ -153,6 +153,6 @@ You will see a network topology graph that displays the relationships between di
 
 <p align="center">
   <a>
-    <img src="./images/computatioinal.png" width="400" height="auto">
+    <img src="./images/computatioinal.png" width="600" height="auto">
   </a>
 </p>

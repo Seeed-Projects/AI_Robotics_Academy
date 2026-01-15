@@ -20,7 +20,7 @@ Key Knowledge Points:
 
 <p align="center">
   <a>
-    <img src="./images/Mermaid.png" width="400" height="auto">
+    <img src="./images/Mermaid.png" width="600" height="auto">
   </a>
 </p>
 
@@ -267,7 +267,7 @@ rosrun rviz rviz
 
 <p align="center">
   <a>
-    <img src="./images/rviz_result.png" width="400" height="auto">
+    <img src="./images/rviz_result.png" width="600" height="auto">
   </a>
 </p>
 
@@ -300,7 +300,7 @@ Teach them these two commands—they are indispensable for troubleshooting later
 
 <p align="center">
   <a>
-    <img src="./images/tf_result.png" width="400" height="auto">
+    <img src="./images/tf_result.png" width="600" height="auto">
   </a>
 </p>
 

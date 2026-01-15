@@ -19,7 +19,7 @@
 
 <p align="center">
   <a>
-    <img src="./images/Mermaid_cn.png" width="400" height="auto">
+    <img src="./images/Mermaid_cn.png" width="600" height="auto">
   </a>
 </p>
 
@@ -263,7 +263,7 @@ rosrun rviz rviz
 
 <p align="center">
   <a>
-    <img src="./images/rviz_result.png" width="400" height="auto">
+    <img src="./images/rviz_result.png" width="600" height="auto">
   </a>
 </p>
 
@@ -296,7 +296,7 @@ rosrun learning_tf tf_listener.py
 
 <p align="center">
   <a>
-    <img src="./images/tf_result.png" width="400" height="auto">
+    <img src="./images/tf_result.png" width="600" height="auto">
   </a>
 </p>
 

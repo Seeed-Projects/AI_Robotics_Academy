@@ -116,7 +116,7 @@ ROS Master 协助在发布者和订阅者之间建立连接。以下是通信发
 
     <p align="center">
       <a>
-      <img src="./images/CMakeLists.png" alt="J3010"  width="400" height="auto">
+      <img src="./images/CMakeLists.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
 
@@ -135,13 +135,13 @@ ROS Master 协助在发布者和订阅者之间建立连接。以下是通信发
     ```
     <p align="center">
       <a>
-      <img src="./images/run_listener_and_talker.png" alt="J3010"  width="400" height="auto">
+      <img src="./images/run_listener_and_talker.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
 
       <p align="center">
       <a>
-      <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="400" height="auto">
+      <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
     

@@ -116,7 +116,7 @@ The ROS Master helps establish connections between Talkers and Listeners. Here's
 
     <p align="center">
       <a>
-      <img src="./images/CMakeLists.png" alt="J3010"  width="400" height="auto">
+      <img src="./images/CMakeLists.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
 
@@ -135,13 +135,13 @@ The ROS Master helps establish connections between Talkers and Listeners. Here's
     ```
     <p align="center">
       <a>
-      <img src="./images/run_listener_and_talker.png" alt="J3010"  width="400" height="auto">
+      <img src="./images/run_listener_and_talker.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
 
       <p align="center">
       <a>
-      <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="400" height="auto">
+      <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
     
