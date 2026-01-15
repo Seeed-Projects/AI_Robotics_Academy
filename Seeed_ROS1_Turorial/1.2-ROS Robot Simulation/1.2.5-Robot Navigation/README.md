@@ -1,3 +1,82 @@
+### 机器人定位AMCL
+新建`~/catkin_ws/src/robot_modeling/launch/amcl.launch`
+
+```
+<launch>
+<node pkg="amcl" type="amcl" name="amcl" output="screen">
+  <!-- Publish scans from best pose at a max of 10 Hz -->
+  <param name="odom_model_type" value="diff"/><!-- 里程计模式为差分 -->
+  <param name="odom_alpha5" value="0.1"/>
+  <param name="transform_tolerance" value="0.2" />
+  <param name="gui_publish_rate" value="10.0"/>
+  <param name="laser_max_beams" value="30"/>
+  <param name="min_particles" value="500"/>
+  <param name="max_particles" value="5000"/>
+  <param name="kld_err" value="0.05"/>
+  <param name="kld_z" value="0.99"/>
+  <param name="odom_alpha1" value="0.2"/>
+  <param name="odom_alpha2" value="0.2"/>
+  <!-- translation std dev, m -->
+  <param name="odom_alpha3" value="0.8"/>
+  <param name="odom_alpha4" value="0.2"/>
+  <param name="laser_z_hit" value="0.5"/>
+  <param name="laser_z_short" value="0.05"/>
+  <param name="laser_z_max" value="0.05"/>
+  <param name="laser_z_rand" value="0.5"/>
+  <param name="laser_sigma_hit" value="0.2"/>
+  <param name="laser_lambda_short" value="0.1"/>
+  <param name="laser_lambda_short" value="0.1"/>
+  <param name="laser_model_type" value="likelihood_field"/>
+  <!-- <param name="laser_model_type" value="beam"/> -->
+  <param name="laser_likelihood_max_dist" value="2.0"/>
+  <param name="update_min_d" value="0.2"/>
+  <param name="update_min_a" value="0.5"/>
+
+  <param name="odom_frame_id" value="odom"/><!-- 里程计坐标系 -->
+  <param name="base_frame_id" value="base_footprint"/><!-- 添加机器人基坐标系 -->
+  <param name="global_frame_id" value="map"/><!-- 添加地图坐标系 -->
+
+  <param name="resample_interval" value="1"/>
+  <param name="transform_tolerance" value="0.1"/>
+  <param name="recovery_alpha_slow" value="0.0"/>
+  <param name="recovery_alpha_fast" value="0.0"/>
+</node>
+</launch>
+```
+
+新建`~/catkin_ws/src/robot_modeling/launch/amcl_rviz.launch`
+```
+<launch>
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="my_map.yaml" />
+    <!-- 运行地图服务器，并且加载设置的地图-->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find robot_modeling)/maps/$(arg map)"/>
+    <!-- 启动AMCL节点 -->
+    <include file="$(find robot_modeling)/launch/amcl.launch" />
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz"/>
+</launch>
+```
+
+
+1.  **终端 1:** 启动 Gazebo `roslaunch robot_modeling gazebo_world.launch`
+2.  **终端 2:** 启动导航 `roslaunch robot_modeling amcl_rviz.launch`
+3.  **Rviz 配置 (nav.rviz):**
+    *   Fixed Frame: `map`
+    *   Add Map (Topic: `/map`) -> 这是你刚才建的图。
+    *   Add RobotModel。
+    *   Add LaserScan。
+    *   Add PoseArray (Topic: `/particlecloud`) -> 显示红色箭头群（AMCL粒子）。
+4.  **终端 3:** 启动键盘控制节点 `rosrun teleop_twist_keyboard teleop_twist_keyboard.py`
+通过键盘控制机器人运动，会发现 posearray 也随之而改变，箭头越是密集，说明当前机器人处于此位置的概率越高。
+
+<p align="center">
+  <a>
+    <img src="./images/pose_array.png" width="600" height="auto">
+  </a>
+</p>
+
+
 ### 自主导航 (Navigation)
 
 现在有了地图，我们要让小车自己去目的地。这需要 `move_base` 包。
@@ -91,7 +170,7 @@
 
 
 #### 2. 编写导航 Launch 文件
-新建 `launch/nav.launch`：
+新建 `~/catkin_ws/src/robot_modeling/launch/nav.launch`：
 
 ```xml
 <launch>
