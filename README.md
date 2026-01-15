@@ -18,7 +18,7 @@ Comprehensive curriculum covering ROS, Simulation, Reinforcement Learning, and a
 #### Core Software & Simulation
 | Course | Level | Time | Description |
 | :--- | :--- | :--- | :--- |
-| [**ROS Basics: 8 Lectures**](./Seeed_ROS1_Turorial/2.English/1.%20ROS%20Basics%208%20lectures/README.md) | 🟢 Beginner | 8h | Learn about nodes, topics and services, and DIY a mobile robot. |
+| [**ROS Basics: 8 Lectures**](./Seeed_ROS1_Turorial/2.English/1.%20ROS%20Basics%208%20lectures/README.md) | 🟢 Beginner | 8h | Learn about nodes, topics and services |
 | [**ROS Robot Simulation: 7 Lectures**](./Seeed_ROS1_Turorial/2.English/2.%20ROS%20Robot%20Simulation%207%20Lectures/README.MD) | 🟢 Beginner | 8h | From modeling to autonomous navigation. |
 | **MoveIt 1/2** | 🟢 Beginner | 6h | Custom Manipulator import & Kinematics implementation. |
 | **Pinocchio** | 🟡 Intermediate | 6h | Kinematics and Dynamics tasks for your own manipulator. |
