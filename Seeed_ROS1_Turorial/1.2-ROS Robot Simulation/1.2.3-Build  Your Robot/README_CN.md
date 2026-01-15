@@ -190,7 +190,7 @@ roslaunch robot_modeling view_car.launch
     <link name="laser_link">
         <visual>
             <geometry>
-                <cylinder radius="0.03" length="0.04"/>
+                <cylinder radius="0.05" length="0.1"/>
             </geometry>
             <material name="red"><color rgba="1 0 0 1"/></material>
         </visual>
@@ -200,7 +200,7 @@ roslaunch robot_modeling view_car.launch
         <parent link="base_link"/>
         <child link="laser_link"/>
         <!-- 安装位置：车身中心偏前 0.15米，高度在车顶上方(车高/2 + 雷达高/2) -->
-        <origin xyz="0.15 0 ${base_height/2 + 0.02}" rpy="0 0 0"/>
+        <origin xyz="0.15 0 ${base_height/2 + 0.05}" rpy="0 0 0"/>
     </joint>
 ```
 
@@ -360,7 +360,7 @@ roslaunch robot_modeling view_car.launch
     <link name="laser_link">
         <visual>
             <geometry>
-                <cylinder radius="0.03" length="0.04"/>
+                <cylinder radius="0.05" length="0.1"/>
             </geometry>
             <material name="red"><color rgba="1 0 0 1"/></material>
         </visual>
@@ -370,7 +370,7 @@ roslaunch robot_modeling view_car.launch
         <parent link="base_link"/>
         <child link="laser_link"/>
         <!-- 安装位置：车身中心偏前 0.15米，高度在车顶上方(车高/2 + 雷达高/2) -->
-        <origin xyz="0.15 0 ${base_height/2 + 0.02}" rpy="0 0 0"/>
+        <origin xyz="0.15 0 ${base_height/2 + 0.05}" rpy="0 0 0"/>
     </joint>
     
         <!-- =========== 8. 摄像头 =========== -->

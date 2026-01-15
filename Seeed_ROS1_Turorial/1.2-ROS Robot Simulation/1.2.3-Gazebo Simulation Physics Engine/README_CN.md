@@ -39,7 +39,7 @@
     ```
 *   **对于 `laser_link`:**
     ```xml
-    <xacro:cylinder_inertia m="0.1" r="0.03" h="0.04"/>
+    <xacro:cylinder_inertia m="0.1" r="0.05" h="0.1"/>
     ```
 *   **对于 `camera_link`:**
     ```xml
@@ -216,22 +216,22 @@
     <link name="laser_link">
         <visual>
             <geometry>
-                <cylinder radius="0.03" length="0.04"/>
+                <cylinder radius="0.05" length="0.1"/>
             </geometry>
             <material name="red"/>
         </visual>
         <collision>
             <geometry>
-                <cylinder radius="0.03" length="0.04"/>
+                <cylinder radius="0.05" length="0.1"/>
             </geometry>
         </collision>
-        <xacro:cylinder_inertia m="0.1" r="0.03" h="0.04"/>
+        <xacro:cylinder_inertia m="0.1" r="0.05" h="0.1/>
     </link>
 
     <joint name="laser_joint" type="fixed">
         <parent link="base_link"/>
         <child link="laser_link"/>
-        <origin xyz="0.15 0 ${base_height/2 + 0.02}" rpy="0 0 0"/>
+        <origin xyz="0.15 0 ${base_height/2 + 0.05}" rpy="0 0 0"/>
     </joint>
 
     <!-- 摄像头 -->
@@ -362,9 +362,9 @@
                         <samples>720</samples>
                         <!-- 分辨率：1表示每个点都保留 -->
                         <resolution>1</resolution>
-                        <!-- 扫描范围：从 -90度 到 +90度 (单位是弧度) -->
-                        <min_angle>-1.57</min_angle>
-                        <max_angle>1.57</max_angle>
+                        <!-- 扫描范围：从 -180度 到 +180度 (单位是弧度) -->
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
                     </horizontal>
                 </scan>
                 <range>
@@ -510,7 +510,7 @@ source devel/setup.bash
 
 <p align="center">
   <a>
-    <img src="./images/mycar.png" width="600" height="auto">
+    <img src="./images/mycar.png" width="800" height="auto">
   </a>
 </p>
 
@@ -533,7 +533,7 @@ source devel/setup.bash
 
 <p align="center">
   <a>
-    <img src="./images/gazebo_rviz.png" width="600" height="auto">
+    <img src="./images/gazebo_rviz.png" width="800" height="auto">
   </a>
 </p>
 
