@@ -5,7 +5,7 @@
 The ROS filesystem structure on the hard disk is organized as follows:
 
   <p align="center">
-    <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+    <a>
     <img src="./images/filesystem.jpg" alt="J3010" width="600" height="auto">
     </a>
   </p>

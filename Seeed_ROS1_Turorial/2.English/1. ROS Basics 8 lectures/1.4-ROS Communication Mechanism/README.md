@@ -7,7 +7,7 @@
 In ROS, topic communication is one of the fundamental ways for nodes to exchange information. This tutorial will guide you through the process of setting up basic topic communication using both C++ and Python. We will implement a simple publisher-subscriber model where the publisher sends text messages at a frequency of 10Hz, and the subscriber receives and prints these messages.
 
   <p align="center">
-    <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+    <a>
     <img src="./images/Topic.png" alt="J3010">
   </a>
 
@@ -115,7 +115,7 @@ The ROS Master helps establish connections between Talkers and Listeners. Here's
 
 
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/CMakeLists.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
@@ -134,13 +134,13 @@ The ROS Master helps establish connections between Talkers and Listeners. Here's
     rosrun listener_and_talker talker
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/run_listener_and_talker.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
 
       <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
@@ -279,7 +279,7 @@ The communication process can be illustrated as follows:
    - The Talker node processes the request and sends back the reply data over TCP.
 
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/Service.png" alt="J3010"  width="600" height="auto">
     </a>
 
@@ -353,7 +353,7 @@ Let's dive into a hands-on example where we create a custom service that sums tw
      int32 sum
      ```
       <p align="center">
-        <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+        <a>
         <img src="./images/srv_code.png" alt="J3010">
         </a>
       </p>
@@ -365,7 +365,7 @@ Let's dive into a hands-on example where we create a custom service that sums tw
     <exec_depend>message_runtime</exec_depend>
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/package_xml.png" alt="J3010"  width="600" height="auto">
     </a>
 
@@ -390,7 +390,7 @@ Let's dive into a hands-on example where we create a custom service that sums tw
      )
      ```
       <p align="center">
-        <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+        <a>
         <img src="./images/srv_cmakelists.png" alt="J3010">
         </a>
       </p>
@@ -509,7 +509,7 @@ rosrun service_communication client 1 5
 ```
 
 <p align="center">
-  <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+  <a>
   <img src="./images/run_service_c.png" alt="J3010"   width="600" height="auto">
   </a>
 </p>
@@ -641,7 +641,7 @@ The process of interacting with the Parameter Server typically involves the foll
    - The ROS Master searches for the requested parameter in its storage and returns the corresponding value to the Listener.
 
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/Parameter_Server.png" alt="J3010"  width="600" height="auto">
     </a>
 

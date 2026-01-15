@@ -7,7 +7,7 @@
 在 ROS 中，话题通信是节点之间交换信息的最基本方式之一。本教程将指导您使用 C++ 和 Python 设置基础的话题通信。我们将实现一个简单的“发布者-订阅者”（Publisher-Subscriber）模型，其中发布者以 10Hz 的频率发送文本消息，订阅者接收并打印这些消息。
 
   <p align="center">
-    <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+    <a>
     <img src="./images/Topic.png" alt="J3010">
   </a>
 </p>
@@ -115,7 +115,7 @@ ROS Master 协助在发布者和订阅者之间建立连接。以下是通信发
     ```
 
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/CMakeLists.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
@@ -134,13 +134,13 @@ ROS Master 协助在发布者和订阅者之间建立连接。以下是通信发
     rosrun listener_and_talker talker
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/run_listener_and_talker.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
 
       <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/run_listener_and_talker_result.png" alt="J3010"  width="400" height="auto">
       </a>
     </p>
@@ -279,7 +279,7 @@ ROS 中的服务通信与话题通信的不同之处在于它是双向的。它�
    - 发布者节点处理请求并通过 TCP 发送回回复数据。
 
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/Service.png" alt="J3010"  width="600" height="auto">
     </a>
 
@@ -353,7 +353,7 @@ ROS 中的服务通信与话题通信的不同之处在于它是双向的。它�
      int32 sum
      ```
       <p align="center">
-        <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+        <a>
         <img src="./images/srv_code.png" alt="J3010">
         </a>
       </p>
@@ -365,7 +365,7 @@ ROS 中的服务通信与话题通信的不同之处在于它是双向的。它�
     <exec_depend>message_runtime</exec_depend>
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/package_xml.png" alt="J3010"  width="600" height="auto">
     </a>
 
@@ -390,7 +390,7 @@ ROS 中的服务通信与话题通信的不同之处在于它是双向的。它�
      )
      ```
       <p align="center">
-        <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+        <a>
         <img src="./images/srv_cmakelists.png" alt="J3010">
         </a>
       </p>
@@ -509,7 +509,7 @@ rosrun service_communication add_two_ints_client 1 5
 ```
 
 <p align="center">
-  <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+  <a>
   <img src="./images/run_service_c.png" alt="J3010"   width="600" height="auto">
   </a>
 </p>
@@ -639,7 +639,7 @@ ROS 参数服务器是一个共享的、多用户的、可通过网络访问的�
    - ROS Master 在其存储中搜索请求的参数，并将相应的值返回给 Listener。
 
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/Parameter_Server.png" alt="J3010"  width="600" height="auto">
     </a>
 

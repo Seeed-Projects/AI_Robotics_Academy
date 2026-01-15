@@ -5,7 +5,7 @@
 硬盘上的 ROS 文件系统结构组织如下：
 
   <p align="center">
-    <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+    <a>
     <img src="./images/filesystem.jpg" alt="J3010" width="600" height="auto">
     </a>
   </p>

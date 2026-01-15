@@ -65,7 +65,7 @@ The main difference between C++ and Python lies in steps 3 and 4. The following 
 
     ```
       <p align="center">
-        <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+        <a>
         <img src="./images/hello_world_c.png" alt="J3010" width="600" height="auto">
         </a>
       </p>
@@ -83,13 +83,13 @@ The main difference between C++ and Python lies in steps 3 and 4. The following 
       target_link_libraries(hello ${catkin_LIBRARIES})
       ```
       <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/cmakelists_dir.png" alt="J3010"width="600" height="auto">
       </a>
       </p>
 
       <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/cmakelists.png" alt="J3010" width="600" height="auto">
       </a>
       </p>
@@ -125,7 +125,7 @@ The main difference between C++ and Python lies in steps 3 and 4. The following 
     rosrun hello_world hello
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/hello_world_result_c.png" alt="J3010" width="600" height="auto">
       </a>
     </p>
@@ -192,7 +192,7 @@ You should see the output: `Hello World!`
     )
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/cmakelists_dir.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>

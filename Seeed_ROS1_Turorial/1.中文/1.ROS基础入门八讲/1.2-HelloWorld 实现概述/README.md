@@ -63,7 +63,7 @@ C++ 和 Python 的主要区别在于步骤 3 和 4。以下章节详细介绍了
     }
     ```
       <p align="center">
-        <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+        <a>
         <img src="./images/hello_world_c.png" alt="J3010" width="600" height="auto">
         </a>
       </p>
@@ -81,13 +81,13 @@ C++ 和 Python 的主要区别在于步骤 3 和 4。以下章节详细介绍了
       target_link_libraries(hello ${catkin_LIBRARIES})
       ```
       <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/cmakelists_dir.png" alt="J3010"width="600" height="auto">
       </a>
       </p>
 
       <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/cmakelists.png" alt="J3010" width="600" height="auto">
       </a>
       </p>
@@ -123,7 +123,7 @@ C++ 和 Python 的主要区别在于步骤 3 和 4。以下章节详细介绍了
     rosrun hello_world hello
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/hello_world_result_c.png" alt="J3010" width="600" height="auto">
       </a>
     </p>
@@ -191,7 +191,7 @@ C++ 和 Python 的主要区别在于步骤 3 和 4。以下章节详细介绍了
     )
     ```
     <p align="center">
-      <a href="https://wiki.seeedstudio.com/reComputer_Intro/">
+      <a>
       <img src="./images/cmakelists_dir.png" alt="J3010"  width="600" height="auto">
       </a>
     </p>
