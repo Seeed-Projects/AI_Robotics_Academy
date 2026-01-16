@@ -1,5 +1,5 @@
 
-## 🌏 Seeed AI Robotics Academy
+# 🌏 Seeed AI Robotics Academy
 
 Welcome to the Seeed Studio Robotics repository. Here you will find comprehensive documentation for our robotic hardware kits, actuators, sensors, and our newly launched Robotics Academy learning courses.
 
