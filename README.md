@@ -29,7 +29,7 @@ Comprehensive curriculum covering ROS, Simulation, Reinforcement Learning, and a
 #### Robot Applications
 | Course | Description |
 | :--- | :--- |
-|[**ReachyMini Tutorial**](./ReachyMini_Tutorial/README.md) | Desktop robot basic operation, kinematics, and secondary development |
+|[**ReachyMini Tutorial**](./Seeed_ReachyMini_Tutorial/README.md) | Desktop robot basic operation, kinematics, and secondary development |
 |**Humanoid**:| Small Servo Humanoid Robots Course (Hardware, Motion & Dance). |
 |**Robot Arm:**|  StarAI Arm System - Kinematics, Dynamics, Imitation Learning & VLA-based RL.| 
 |**Wheel-Legged:** | Stackforce Course - Balance control and LQR motion planning.| 
