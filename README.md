@@ -27,6 +27,7 @@ Comprehensive curriculum covering ROS, Simulation, Reinforcement Learning, and a
 | **Reinforcement Learning** | 🟣 Hard | 20h | PPO, DRL training pipelines, and Jetson deployment. |
 
 #### Robot Applications
+| Course | Description |
 | :--- | :--- |
 |[**ReachyMini Tutorial**](./ReachyMini_Tutorial/README.md) | Desktop robot basic operation, kinematics, and secondary development |
 |**Humanoid**:| Small Servo Humanoid Robots Course (Hardware, Motion & Dance). |
