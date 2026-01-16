@@ -27,13 +27,12 @@ Comprehensive curriculum covering ROS, Simulation, Reinforcement Learning, and a
 | **Reinforcement Learning** | 🟣 Hard | 20h | PPO, DRL training pipelines, and Jetson deployment. |
 
 #### Robot Applications
-| Course | Description |
-| :--- | :--- |
-|[**ReachyMini Tutorial**](./Seeed_ReachyMini_Tutorial/README.md) | Desktop robot basic operation, kinematics, and secondary development |
-|**Humanoid**:| Small Servo Humanoid Robots Course (Hardware, Motion & Dance). |
-|**Robot Arm:**|  StarAI Arm System - Kinematics, Dynamics, Imitation Learning & VLA-based RL.| 
-|**Wheel-Legged:** | Stackforce Course - Balance control and LQR motion planning.| 
-|**Desktop Robot:**|  ReachyMini Course - Basic Operation & Secondary Development.| 
+| Course | Level | Description |
+| :--- | :--- |:--- |
+|[**ReachyMini Tutorial 13 Lectures**](./Seeed_ReachyMini_Tutorial/README.md) | 🟡 Intermediate  |Desktop robot basic operation, kinematics, and secondary development |
+|**Humanoid**:| 🟢 Beginner |  Small Servo Humanoid Robots Course (Hardware, Motion & Dance). |
+|**Robot Arm:**| 🟡 Intermediate  |  StarAI Arm System - Kinematics, Dynamics, Imitation Learning & VLA-based RL.| 
+|**Wheel-Legged:** | 🟡 Intermediate  | Stackforce Course - Balance control and LQR motion planning.| 
 
 <br>
 
