@@ -25,6 +25,8 @@
 | **强化学习 (RL)** | 🟣 困难 | 20h | PPO、DRL 训练管道以及 Jetson 部署。 |
 
 #### 机器人应用
+| 课程 | 简介 |
+| :--- | :--- |
 |[**ReachyMini 桌面机器人:**](./ReachyMini_Tutorial/1.中文/README.md)| ReachyMini 课程 - 基础操作、接口教程及二次开发。|
 |**人形机器人:**| 小型舵机人形机器人课程（硬件驱动、动作与舞蹈编排）。|
 |**移动机器人:**| 移动机器人 (Lekiwi) - SLAM、Navigation 2 和自主巡逻。|
