@@ -1,8 +1,6 @@
-
 ## 🌏 English
 
-Welcome to the Seeed Studio Robotics repository. Here you will find comprehensive documentation for our robotic hardware kits, actuators, sensors, and our newly launched Robotics Academy learning courses.
-
+Welcome to the **Seeed Studio Robotics Academy** - your comprehensive gateway to robotics education. Here you will find structured learning paths for ROS, robot simulation, hardware control, and advanced robotics applications.
 
 ### 📦 Hardware Wiki
 
@@ -10,29 +8,21 @@ Detailed guides, datasheets, and setup instructions for robotic hardware.
 
 [Seeedstudio Wiki](https://wiki.seeedstudio.com/robotics_page/)
 
+---
 
-### 🎓 Robotics Academy
+### 🎓 Robotics Academy Courses
 
-Comprehensive curriculum covering ROS, Simulation, Reinforcement Learning, and advanced robot control.
+Our curriculum is organized into focused learning tracks, each designed to take you from fundamentals to advanced topics.
 
-#### Core Software & Simulation
-| Course | Level | Time | Description |
-| :--- | :--- | :--- | :--- |
-| [**ROS Basics: 8 Lectures**](./Seeed_ROS1_Turorial/2.English/1.%20ROS%20Basics%208%20lectures/README.md) | 🟢 Beginner | 8h | Learn about nodes, topics and services |
-| [**ROS Robot Simulation: 7 Lectures**](./Seeed_ROS1_Turorial/2.English/2.%20ROS%20Robot%20Simulation%207%20Lectures/README.MD) | 🟢 Beginner | 8h | From modeling to autonomous navigation. |
-| **MoveIt 1/2** | 🟢 Beginner | 6h | Custom Manipulator import & Kinematics implementation. |
-| **Pinocchio** | 🟡 Intermediate | 6h | Kinematics and Dynamics tasks for your own manipulator. |
-| **NVIDIA Isaac Sim**| 🔴 Advanced | 12h | Sim2Real workflows, USD pipelines, and environments. |
-| **MuJoCo** | 🔴 Advanced | 10h | Model dynamics and simulation for agile robot control. |
-| **Reinforcement Learning** | 🟣 Hard | 20h | PPO, DRL training pipelines, and Jetson deployment. |
+#### 📚 Course Tracks
 
-#### Robot Applications
-*   **Humanoid:** Small Servo Humanoid Robots Course (Hardware, Motion & Dance).
-*   **Mobile Robot:** Mobile Robotics (Lekiwi) - SLAM, Nav2, autonomous patrolling.
-*   **Robot Arm:** StarAI Arm System - Kinematics, Dynamics, Imitation Learning & VLA-based RL.
-*   **Wheel-Legged:** Stackforce Course - Balance control and LQR motion planning.
-*   **Desktop Robot:** ReachyMini Course - Basic Operation & Secondary Development.
-
-<br>
+| Track | Description | Languages |
+| :--- | :--- | :--- |
+| [**ROS1 Tutorial**](./Seeed_ROS1_Turorial/README.md) | Master Robot Operating System fundamentals, simulation, and robot control | [中文](./Seeed_ROS1_Turorial/1.中文/README.md) • [English](./Seeed_ROS1_Turorial/2.English/README.md) |
+| [**ReachyMini Tutorial**](./ReachyMini_Tutorial/README.md) | Desktop robot basic operation, kinematics, and secondary development | [中文](./ReachyMini_Tutorial/1.中文/README.md) • [English](./ReachyMini_Tutorial/2.English/README.md) |
 
 ---
+
+## 🌍 其他语言 (Other Languages)
+
+- [中文版](./README_CN.md)
