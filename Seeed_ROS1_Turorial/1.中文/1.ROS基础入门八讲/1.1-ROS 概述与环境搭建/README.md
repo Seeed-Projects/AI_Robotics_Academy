@@ -186,7 +186,26 @@ ROS（机器人操作系统）的历史与机器人技术的整体演进交织�
 ### ROS 常用开发软件安装
 
 #### 安装 VSCode 及 ROS 开发扩展
-1. **关于 VSCode 的安装，请参考之前的教程：[3.1-Python 与编程基础](https://github.com/Seeed-Projects/reComputer-Jetson-for-Beginners/blob/main/3-Basic-Tools-and-Getting-Started/3.1-Python-and-Programming-Fundamentals/README.md)**
+1. **安装VSCode**: 
+- 浏览器打开[VSCode官方](https://code.visualstudio.com/)，下载deb版本的Linux安装包
+<p align="center">
+  <a">
+    <img src="./images/vscode_officialweb.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
+- 将安装包复制到主目录下，然后打开终端运行如下指令来安装vscode.
+
+```bash
+sudo dpkg -i code_xxxx_amd64.deb
+# For example: sudo dpkg -i code_1.60.0-1630504426_amd64.deb
+```
+
+- 完成上一步后，你讲在你的软件集合中看到Vscode的图标。
+<p align="center">
+  <a">
+    <img src="./images/vscode_logo.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
 
 2. **从 VSCode 扩展市场安装 `Python`、`ROS`、`C++` 和 `CMake Tools` 等工具。**
 

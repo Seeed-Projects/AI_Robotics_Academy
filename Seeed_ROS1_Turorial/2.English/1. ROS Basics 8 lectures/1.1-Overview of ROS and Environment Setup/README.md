@@ -199,7 +199,28 @@ This quick demo shows a graphical turtle robot that you can control using the ke
 ### Installation of Common Development Software for ROS
 
 #### Installation of VScode and ROS Development Extensions
-1. **For the installation of VSCode, please refer to the previous tutorial: [3.1-Python and Programming Fundamentals](https://github.com/Seeed-Projects/reComputer-Jetson-for-Beginners/blob/main/3-Basic-Tools-and-Getting-Started/3.1-Python-and-Programming-Fundamentals/README.md)**
+# Translated Content (Syntax Retained)
+1. **Install VSCode**:
+- Open the [VSCode Official Website](https://code.visualstudio.com/) in your browser and download the Linux installation package in `deb` format.
+<p align="center">
+  <a">
+    <img src="./images/vscode_officialweb.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
+- Copy the installation package to your home directory, then open the terminal and run the following command to install VSCode.
+
+```bash
+sudo dpkg -i code_xxxx_amd64.deb
+# For example: sudo dpkg -i code_1.60.0-1630504426_amd64.deb
+```
+
+- After completing the previous step, you will see the VSCode icon in your software collection.
+<p align="center">
+  <a">
+    <img src="./images/vscode_logo.png" alt="ros"  width="600" height="auto">
+  </a>
+</p>
+
 
 2. **Install tools such as `Python`, `ROS`, `C++`, and `CMake Tools` from the VSCode Extensions Marketplace.**
 
