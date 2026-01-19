@@ -1,12 +1,12 @@
 # ROS2 基础入门：从零到一的机器人开发之路
 
 ## 课程简介
-欢迎参加 **ROS (Robot Operating System) 基础入门八讲**！本课程专为机器人开发初学者设计，旨在通过系统的理论讲解与实战演练，帮助您快速掌握 ROS2 的核心机制。
+欢迎参加 **ROS2 (Robot Operating System 2) 基础入门八讲**！本课程专为机器人开发初学者设计，旨在通过系统的理论讲解与实战演练，帮助您快速掌握 ROS2 的核心机制。
 
 无论您是在 [reComputer Nvidia Jetson Orin](https://www.seeedstudio.com/reComputer-J3010-w-o-power-adapter-p-5631.html) 还是标准的 Ubuntu 环境下，本课程都将带您从环境搭建开始，逐步深入到通信机制、坐标变换等核心技术，为构建复杂的机器人应用打下坚实基础。
 
 ### 您将学到：
-* 如何在 Linux 环境下部署和配置 ROS 系统。
+* 如何在 Linux 环境下部署和配置 ROS2 系统。
 * 掌握 C++ 和 Python 在 ROS2 中的双语实现。
 * 深刻理解话题（Topic）、服务（Service）和参数服务器（Parameter Server）。
 * 学习如何使用 Launch 文件管理多节点运行。
@@ -22,7 +22,7 @@
 | :--- | :--- | :--- | :--- |
 | **01** | **ROS2 概述与环境搭建** | ROS2 历史、安装步骤及 Terminator/VSCode 工具配置 | [查看详情](./1.1-ROS2%20概述与环境搭建/README.md) |
 | **02** | **HelloWorld 实现概述** | 编写第一个 ROS2 节点 (C++/Python)，理解工作空间结构 | [查看详情](./1.2-HelloWorld%20实现概述/README.md) |
-| **03** | **ROS2 架构** | 深入理解 ROS 文件系统结构及 `package.xml` / `CMakeLists.txt` | [查看详情](./1.3-ROS%20架构/README.md) |
+| **03** | **ROS2 架构** | 深入理解 ROS 文件系统结构及 `package.xml` / `CMakeLists.txt` | [查看详情](./1.3-ROS2%20架构/README.md) |
 | **04** | **ROS2 通信机制** | 话题通信、服务通信及参数服务器的原理与实战 | [查看详情](./1.4-ROS2%20通信机制/README.md) |
 | **05** | **常用 ROS2 命令** | 熟练使用 `rosnode`, `rostopic`, `rosmsg` 等调试工具 | [查看详情](./1.5-常用%20ROS2%20命令/README.md) |
 | **06** | **ROS2 运行管理** | 学习使用 Launch 文件启动多节点及处理名称冲突 | [查看详情](./1.6-ROS2%20运行管理/README.md) |
@@ -39,4 +39,3 @@
 ---
 *祝您在机器人开发的海洋中航行顺利！*
 
-> **注意：** 请根据您实际的文件夹名称微调链接中的路径（例如将 `1.1-ROS2-概述与环境搭建` 替换为您磁盘上实际的文件夹名）。

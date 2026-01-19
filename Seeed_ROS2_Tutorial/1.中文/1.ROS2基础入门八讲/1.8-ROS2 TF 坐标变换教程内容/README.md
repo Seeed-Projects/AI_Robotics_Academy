@@ -98,7 +98,7 @@ ros2 pkg create --build-type ament_python learning_tf2 --dependencies rclpy tf2_
 
 **任务：** 告诉 ROS 2，`radar_link` 相对于 `base_link` 在哪里。
 
-在 `~/ros2_ws/src/learning_tf2/learning_tf2/` 目录下新建 `static_turtle_tf2_broadcaster.py` (为了演示，我们直接叫 `tf2_broadcaster.py`)。
+在 `~/ros2_ws/src/learning_tf2/learning_tf2/` 目录下新建 `tf2_broadcaster.py`。
 
 ```python
 import math
@@ -208,7 +208,7 @@ class FrameListener(Node):
             # 3. 定义一个虚拟障碍物点 (在雷达正前方 2 米)
             radar_point = PointStamped()
             radar_point.header.frame_id = 'radar_link'
-            radar_point.header.stamp = self.get_clock().now().to_msg()
+            radar_point.header.stamp = rclpy.time.Time().to_msg()
             radar_point.point.x = 2.0
             radar_point.point.y = 0.0
             radar_point.point.z = 0.0
@@ -239,6 +239,12 @@ if __name__ == '__main__':
     main()
 ```
 
+<p align="center">
+  <a>
+    <img src="./images/tf_py.png" width="600" height="auto" alt="rqt_graph">
+  </a>
+</p>
+
 ---
 
 ### 第三步：配置 setup.py
@@ -254,6 +260,12 @@ if __name__ == '__main__':
         ],
     },
 ```
+
+<p align="center">
+  <a>
+    <img src="./images/tf_setup.png" width="600" height="auto" alt="rqt_graph">
+  </a>
+</p>
 
 ---
 
@@ -279,6 +291,13 @@ if __name__ == '__main__':
     *   Set **Fixed Frame** = `base_link`
     *   **Add** -> **TF**
     *   你将看到 `radar_link` 正在绕着 `base_link` 旋转。
+
+<p align="center">
+  <a>
+    <img src="./images/rviz2.png" width="600" height="auto" alt="rqt_graph">
+  </a>
+</p>
+
 
 4.  **启动监听器 (Listener):**
     打开新终端：

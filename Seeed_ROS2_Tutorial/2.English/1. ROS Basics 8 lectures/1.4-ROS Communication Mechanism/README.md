@@ -1,17 +1,17 @@
-# 2. ROS 2 通信机制
+# 2. ROS 2 Communication Mechanisms
 
-在 ROS 2 中，节点之间的通信依然基于三大支柱：**Topic (话题)**、**Service (服务)** 和 **Parameters (参数)**。但在底层实现上，ROS 2 去除了 Master 节点，转而使用基于 DDS 的中间件进行去中心化的自动发现和通信。
+In ROS 2, communication between nodes is still based on three pillars: **Topic**, **Service**, and **Parameters**. However, in the underlying implementation, ROS 2 removes the Master node and instead uses DDS-based middleware for decentralized automatic discovery and communication.
 
-## 2.1 话题通信 (Topic Communication)
+## 2.1 Topic Communication
 
-### 话题通信简介
+### Introduction to Topic Communication
 
-话题通信是节点之间通过**发布/订阅**模型交换数据的方式。它适用于连续的数据流（如传感器数据、机器人状态）。
+Topic communication is a way for nodes to exchange data through a **Publish/Subscribe** model. It is suitable for continuous data streams (such as sensor data, robot status).
 
-*   **DDS 自动发现**：在 ROS 2 中，发布者和订阅者只要在同一个网络（Domain ID 相同），就能自动发现对方，无需 Master 介入。
-*   **通信模型**：
-    *   **Publisher (发布者)**: 发送消息。
-    *   **Subscriber (订阅者)**: 接收消息。
+*   **DDS Automatic Discovery**: In ROS 2, publishers and subscribers can automatically discover each other as long as they are on the same network (same Domain ID), without the need for a Master node.
+*   **Communication Model**:
+    *   **Publisher**: Sends messages.
+    *   **Subscriber**: Receives messages.
 
 <p align="center">
   <a>
@@ -21,18 +21,18 @@
 
 ---
 
-### 动手实践：话题通信 (C++)
+### Hands-on Practice: Topic Communication (C++)
 
-**目标**：创建 C++ 发布者（发送 "Hello World" + 计数）和订阅者。
+**Goal**: Create a C++ Publisher (sending "Hello World" + count) and a Subscriber.
 
-#### 1. 创建功能包
+#### 1. Create a Package
 ```bash
 cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_cmake cpp_topic_pkg --dependencies rclcpp std_msgs
 ```
 
-#### 2. 编写发布者 (Publisher)
-新建 `src/cpp_topic_pkg/src/publisher.cpp`：
+#### 2. Write the Publisher
+Create `src/cpp_topic_pkg/src/publisher.cpp`:
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -40,16 +40,16 @@ ros2 pkg create --build-type ament_cmake cpp_topic_pkg --dependencies rclcpp std
 
 using namespace std::chrono_literals;
 
-// 继承自 rclcpp::Node
+// Inherit from rclcpp::Node
 class TopicPublisher : public rclcpp::Node
 {
 public:
   TopicPublisher() : Node("cpp_publisher")
   {
-    // 创建发布者：话题名 "topic", 队列长度 10
+    // Create publisher: topic name "topic", queue size 10
     publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
     
-    // 创建定时器：每 500ms 触发一次回调
+    // Create timer: trigger callback every 500ms
     timer_ = this->create_wall_timer(
       500ms, std::bind(&TopicPublisher::timer_callback, this));
   }
@@ -79,13 +79,13 @@ int main(int argc, char * argv[])
 
 <p align="center">
   <a>
-    <img src="./images/topic_publisher_c.png" width="600" height="auto" alt="rqt_graph">
+    <img src="./images/topic_publisher_c.png" width="600" height="auto" alt="publisher_cpp">
   </a>
 </p>
 
 
-#### 3. 编写订阅者 (Subscriber)
-新建 `src/cpp_topic_pkg/src/subscriber.cpp`：
+#### 3. Write the Subscriber
+Create `src/cpp_topic_pkg/src/subscriber.cpp`:
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -98,7 +98,7 @@ class TopicSubscriber : public rclcpp::Node
 public:
   TopicSubscriber() : Node("cpp_subscriber")
   {
-    // 创建订阅者
+    // Create subscriber
     subscription_ = this->create_subscription<std_msgs::msg::String>(
       "topic", 10, std::bind(&TopicSubscriber::topic_callback, this, _1));
   }
@@ -122,12 +122,12 @@ int main(int argc, char * argv[])
 
 <p align="center">
   <a>
-    <img src="./images/topic_subscriber_c.png" width="600" height="auto" alt="rqt_graph">
+    <img src="./images/topic_subscriber_c.png" width="600" height="auto" alt="subscriber_cpp">
   </a>
 </p>
 
-#### 4. 配置 CMakeLists.txt
-在 `add_executable` 之前添加依赖，在文件末尾添加安装规则：
+#### 4. Configure CMakeLists.txt
+Add dependencies before `add_executable`, and add installation rules at the end of the file:
 
 ```cmake
 add_executable(talker src/publisher.cpp)
@@ -145,43 +145,43 @@ install(TARGETS
 
 <p align="center">
   <a>
-    <img src="./images/topic_cmakelists.png" width="600" height="auto" alt="rqt_graph">
+    <img src="./images/topic_cmakelists.png" width="600" height="auto" alt="cmake_config">
   </a>
 </p>
 
 
-#### 5. 编译与运行测试
+#### 5. Build and Run Test
 
-代码编写和配置完成后，我们需要编译工作空间并运行节点来验证通信是否正常。
+After coding and configuration, we need to build the workspace and run the nodes to verify the communication.
 
-**1. 编译工作空间**
-回到工作空间根目录。为了加快速度，我们使用 `--packages-select` 参数只编译当前的包：
+**1. Build Workspace**
+Return to the workspace root directory. To speed up, we use the `--packages-select` parameter to compile only the current package:
 
 ```bash
 cd ~/ros2_ws
 colcon build --packages-select cpp_topic_pkg
 ```
 
-**2. 运行发布者 (Talker)**
-打开第一个终端，加载环境并启动发布者节点：
+**2. Run Publisher (Talker)**
+Open the first terminal, source the environment, and start the publisher node:
 ```bash
-# 务必先加载环境
+# Be sure to source the environment first
 source install/setup.bash
-# 语法：ros2 run <包名> <可执行文件名>
+# Syntax: ros2 run <package_name> <executable_name>
 ros2 run cpp_topic_pkg talker
 ```
-*预期输出：* 终端将每隔 0.5 秒打印一次日志：
+*Expected Output:* The terminal will print a log every 0.5 seconds:
 `[INFO] [cpp_publisher]: Publishing: 'Hello World: 0'`
 `[INFO] [cpp_publisher]: Publishing: 'Hello World: 1'`...
 
-**3. 运行订阅者 (Listener)**
-打开**第二个**终端，同样加载环境（每个新终端都需要加载），然后启动订阅者：
+**3. Run Subscriber (Listener)**
+Open the **second** terminal, source the environment (required for every new terminal), then start the subscriber:
 ```bash
 cd ~/ros2_ws
 source install/setup.bash
 ros2 run cpp_topic_pkg listener
 ```
-*预期输出：* 你会看到订阅者接收到了发布者发出的消息：
+*Expected Output:* You will see the subscriber receiving messages from the publisher:
 `[INFO] [cpp_subscriber]: I heard: 'Hello World: 0'`
 `[INFO] [cpp_subscriber]: I heard: 'Hello World: 1'`...
 
@@ -191,23 +191,23 @@ ros2 run cpp_topic_pkg listener
   </a>
 </p>
 
-**4. 停止运行**
-在任意终端中按下 `Ctrl + C` 即可停止节点运行。
+**4. Stop Running**
+Press `Ctrl + C` in any terminal to stop the node.
 
 ---
 
-### 动手实践：话题通信 (Python)
+### Hands-on Practice: Topic Communication (Python)
 
-**目标**：使用 Python 实现相同功能。
+**Goal**: Implement the same functionality using Python.
 
-#### 1. 创建功能包
+#### 1. Create a Package
 ```bash
 cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_python py_topic_pkg --dependencies rclpy std_msgs
 ```
 
-#### 2. 编写发布者
-新建 `src/py_topic_pkg/py_topic_pkg/publisher.py`：
+#### 2. Write the Publisher
+Create `src/py_topic_pkg/py_topic_pkg/publisher.py`:
 
 ```python
 import rclpy
@@ -239,12 +239,12 @@ def main(args=None):
 
 <p align="center">
   <a>
-    <img src="./images/topic_pub_py.png" width="600" height="auto" alt="">
+    <img src="./images/topic_pub_py.png" width="600" height="auto" alt="pub_python">
   </a>
 </p>
 
-#### 3. 编写订阅者
-新建 `src/py_topic_pkg/py_topic_pkg/subscriber.py`：
+#### 3. Write the Subscriber
+Create `src/py_topic_pkg/py_topic_pkg/subscriber.py`:
 
 ```python
 import rclpy
@@ -271,13 +271,13 @@ def main(args=None):
 
 <p align="center">
   <a>
-    <img src="./images/topic_sub_py.png" width="600" height="auto" alt="">
+    <img src="./images/topic_sub_py.png" width="600" height="auto" alt="sub_python">
   </a>
 </p>
 
 
-#### 4. 配置 setup.py
-在 `entry_points` 中注册节点：
+#### 4. Configure setup.py
+Register nodes in `entry_points`:
 
 ```python
     entry_points={
@@ -290,21 +290,21 @@ def main(args=None):
 
 <p align="center">
   <a>
-    <img src="./images/topic_setup.png" width="600" height="auto" alt="">
+    <img src="./images/topic_setup.png" width="600" height="auto" alt="setup_py_config">
   </a>
 </p>
 
 ---
 
-### 编译与运行
+### Build and Run
 ```bash
 cd ~/ros2_ws
 colcon build
 source install/setup.bash
 ```
 
-*   **终端 1 (C++ 发布):** `ros2 run cpp_topic_pkg talker`
-*   **终端 2 (Python 订阅):** `ros2 run py_topic_pkg listener`
+*   **Terminal 1 (C++ Pub):** `ros2 run cpp_topic_pkg talker`
+*   **Terminal 2 (Python Sub):** `ros2 run py_topic_pkg listener`
 
 <p align="center">
   <a>
@@ -313,24 +313,24 @@ source install/setup.bash
 </p>
 
 
-### ROS 2 话题常用命令
+### Common ROS 2 Topic Commands
 
-*   `ros2 topic list`: 列出所有话题。
-*   `ros2 topic info /topic`: 查看话题类型和发布/订阅者数量。
-*   `ros2 topic echo /topic`: 打印消息内容。
-*   `ros2 topic hz /topic`: 查看频率。
-*   `ros2 topic pub /topic std_msgs/String "data: 'Hello'"`: 手动发布消息。
+*   `ros2 topic list`: List all topics.
+*   `ros2 topic info /topic`: View topic type and number of publishers/subscribers.
+*   `ros2 topic echo /topic`: Print message content.
+*   `ros2 topic hz /topic`: Check frequency.
+*   `ros2 topic pub /topic std_msgs/String "data: 'Hello'"`: Publish a message manually.
 
 ----
 
-## 2.2 服务通信 (Service Communication)
+## 2.2 Service Communication
 
-### 1. 服务通信原理
+### 1. Service Communication Principles
 
-服务通信是基于 **C/S (Client-Server)** 模型的一种通信机制。与话题（Topic）的“广播-收听”模式不同，服务通信是**双向的**。
+Service communication is a mechanism based on the **C/S (Client-Server)** model. Unlike the "broadcast-listen" mode of Topics, service communication is **bidirectional**.
 
-*   **Server (服务端)**: 提供具体的服务能力（比如：计算加法、开关相机、保存地图）。它被动等待请求。
-*   **Client (客户端)**: 发起请求（Request），并等待服务端处理完毕后返回响应（Response）。
+*   **Server**: Provides specific service capabilities (e.g., calculating addition, switching a camera, saving a map). It waits passively for requests.
+*   **Client**: Initiates a Request and waits for the server to return a Response after processing.
 
 <p align="center">
   <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html">
@@ -338,32 +338,32 @@ source install/setup.bash
   </a>
 </p>
 
-> **通俗理解：** 话题像“收音机”，电台只管播，你不听它也播。服务像“点外卖”，你（Client）下单（Request），餐厅（Server）做饭，做好后给你送来（Response）。
+> **Analogy:** A Topic is like a "radio"; the station broadcasts, and it doesn't matter if you listen. A Service is like "ordering takeaway"; you (Client) place an order (Request), the restaurant (Server) cooks, and then delivers it to you (Response).
 
 ---
 
-### 2. 前置准备：创建自定义接口包
+### 2. Prerequisites: Create a Custom Interface Package
 
-在 ROS 2 中，最佳实践是将自定义的消息 (`.msg`) 和服务 (`.srv`) 定义在一个独立的包中。
+In ROS 2, the best practice is to define custom messages (`.msg`) and services (`.srv`) in a separate package.
 
-1.  **创建接口包**：
+1.  **Create the interface package**:
     ```bash
     cd ~/ros2_ws/src
     ros2 pkg create --build-type ament_cmake tutorial_interfaces
     mkdir -p tutorial_interfaces/srv
     ```
 
-2.  **定义服务文件**：
-    创建 `tutorial_interfaces/srv/AddTwoInts.srv`，内容如下：
+2.  **Define the service file**:
+    Create `tutorial_interfaces/srv/AddTwoInts.srv` with the following content:
     ```text
     int64 a
     int64 b
     ---
     int64 sum
     ```
-    *(说明：`---` 上方是请求数据，下方是响应数据)*
+    *(Note: The area above `---` is request data; below is response data)*
 
-3.  **修改 `CMakeLists.txt`**：
+3.  **Modify `CMakeLists.txt`**:
     ```cmake
     find_package(rosidl_default_generators REQUIRED)
     rosidl_generate_interfaces(${PROJECT_NAME}
@@ -371,14 +371,14 @@ source install/setup.bash
     )
     ```
 
-4.  **修改 `package.xml`**：
+4.  **Modify `package.xml`**:
     ```xml
     <build_depend>rosidl_default_generators</build_depend>
     <exec_depend>rosidl_default_runtime</exec_depend>
     <member_of_group>rosidl_interface_packages</member_of_group>
     ```
 
-5.  **编译接口包**（**这一步非常重要，否则后续代码找不到头文件**）：
+5.  **Build the interface package** (**This step is crucial, otherwise subsequent code won't find the headers**):
     ```bash
     cd ~/ros2_ws
     colcon build --packages-select tutorial_interfaces
@@ -387,19 +387,19 @@ source install/setup.bash
 
 ---
 
-### 3. C++ 实现服务通信
+### 3. C++ Implementation of Service Communication
 
-**目标**：创建一个服务端计算两个数的和，创建一个客户端发送请求。
+**Goal**: Create a server to calculate the sum of two numbers and a client to send requests.
 
-#### 第一步：创建功能包
+#### Step 1: Create the Package
 ```bash
 cd ~/ros2_ws/src
-# 注意依赖项中包含了刚才创建的 tutorial_interfaces
+# Note that the dependencies include the tutorial_interfaces created earlier
 ros2 pkg create --build-type ament_cmake cpp_service_pkg --dependencies rclcpp tutorial_interfaces
 ```
 
-#### 第二步：编写服务端 (Server)
-新建 `src/cpp_service_pkg/src/server.cpp`：
+#### Step 2: Write the Server
+Create `src/cpp_service_pkg/src/server.cpp`:
 ```cpp
 #include "rclcpp/rclcpp.hpp"
 #include "tutorial_interfaces/srv/add_two_ints.hpp"
@@ -407,13 +407,13 @@ ros2 pkg create --build-type ament_cmake cpp_service_pkg --dependencies rclcpp t
 using std::placeholders::_1;
 using std::placeholders::_2;
 
-// 回调函数：处理请求并赋值给响应
+// Callback function: process request and assign value to response
 void add(const std::shared_ptr<tutorial_interfaces::srv::AddTwoInts::Request> request,
          std::shared_ptr<tutorial_interfaces::srv::AddTwoInts::Response> response)
 {
   response->sum = request->a + request->b;
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "收到请求: a=%ld, b=%ld", request->a, request->b);
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "发送反馈: sum=%ld", response->sum);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request: a=%ld, b=%ld", request->a, request->b);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sending back response: sum=%ld", response->sum);
 }
 
 int main(int argc, char **argv)
@@ -421,21 +421,21 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
   std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
 
-  // 创建服务：名称为 "add_two_ints"
+  // Create service: named "add_two_ints"
   rclcpp::Service<tutorial_interfaces::srv::AddTwoInts>::SharedPtr service =
     node->create_service<tutorial_interfaces::srv::AddTwoInts>("add_two_ints", &add);
 
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "服务端已启动，等待请求...");
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
   
   rclcpp::spin(node);
   rclcpp::shutdown();
 }
 ```
 
-#### 第三步：编写客户端 (Client)
-**特别注意**：ROS 2 客户端强烈建议使用 **异步调用 (Async)**，以防止死锁。
+#### Step 3: Write the Client
+**Important**: ROS 2 clients are strongly recommended to use **Asynchronous Calls** to prevent deadlocks.
 
-新建 `src/cpp_service_pkg/src/client.cpp`：
+Create `src/cpp_service_pkg/src/client.cpp`:
 ```cpp
 #include "rclcpp/rclcpp.hpp"
 #include "tutorial_interfaces/srv/add_two_ints.hpp"
@@ -447,39 +447,39 @@ int main(int argc, char **argv)
   rclcpp::init(argc, argv);
 
   if (argc != 3) {
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "用法: ros2 run cpp_service_pkg client X Y");
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Usage: ros2 run cpp_service_pkg client X Y");
       return 1;
   }
 
   std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
   
-  // 创建客户端
+  // Create client
   rclcpp::Client<tutorial_interfaces::srv::AddTwoInts>::SharedPtr client =
     node->create_client<tutorial_interfaces::srv::AddTwoInts>("add_two_ints");
 
-  // 1. 构建请求数据
+  // 1. Build request data
   auto request = std::make_shared<tutorial_interfaces::srv::AddTwoInts::Request>();
   request->a = atoll(argv[1]);
   request->b = atoll(argv[2]);
 
-  // 2. 等待服务上线 (如果服务端没开，这里会一直等)
+  // 2. Wait for service to be available
   while (!client->wait_for_service(1s)) {
     if (!rclcpp::ok()) {
-      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "等待被中断，退出。");
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
       return 0;
     }
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "服务未上线，正在等待...");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
   }
 
-  // 3. 发送异步请求
+  // 3. Send asynchronous request
   auto result_future = client->async_send_request(request);
   
-  // 4. 等待结果 (spin_until_future_complete)
+  // 4. Wait for result (spin_until_future_complete)
   if (rclcpp::spin_until_future_complete(node, result_future) == rclcpp::FutureReturnCode::SUCCESS)
   {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "计算结果: %ld", result_future.get()->sum);
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result_future.get()->sum);
   } else {
-    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "服务调用失败");
+    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
   }
 
   rclcpp::shutdown();
@@ -487,19 +487,19 @@ int main(int argc, char **argv)
 }
 ```
 
-#### 第四步：配置 CMakeLists.txt
-打开 `src/cpp_service_pkg/CMakeLists.txt`，在 `find_package` 后添加以下内容：
+#### Step 4: Configure CMakeLists.txt
+Open `src/cpp_service_pkg/CMakeLists.txt` and add the following after `find_package`:
 
 ```cmake
-# 添加服务端可执行文件
+# Add server executable
 add_executable(server src/server.cpp)
 ament_target_dependencies(server rclcpp tutorial_interfaces)
 
-# 添加客户端可执行文件
+# Add client executable
 add_executable(client src/client.cpp)
 ament_target_dependencies(client rclcpp tutorial_interfaces)
 
-# 安装规则
+# Installation rules
 install(TARGETS
   server
   client
@@ -507,36 +507,36 @@ install(TARGETS
 )
 ```
 
-#### 第五步：编译与运行
+#### Step 5: Build and Run
 ```bash
 cd ~/ros2_ws
 colcon build --packages-select cpp_service_pkg
 ```
 
-*   **终端 1 (服务端):**
+*   **Terminal 1 (Server):**
     ```bash
     source install/setup.bash
     ros2 run cpp_service_pkg server
     ```
-*   **终端 2 (客户端):**
+*   **Terminal 2 (Client):**
     ```bash
     source install/setup.bash
-    # 发送请求计算 2 + 3
+    # Request calculation for 2 + 3
     ros2 run cpp_service_pkg client 2 3
     ```
 
 ---
 
-### 4. Python 实现服务通信
+### 4. Python Implementation of Service Communication
 
-#### 第一步：创建功能包
+#### Step 1: Create the Package
 ```bash
 cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_python py_service_pkg --dependencies rclpy tutorial_interfaces
 ```
 
-#### 第二步：编写服务端
-新建 `src/py_service_pkg/py_service_pkg/server.py`：
+#### Step 2: Write the Server
+Create `src/py_service_pkg/py_service_pkg/server.py`:
 ```python
 import rclpy
 from rclpy.node import Node
@@ -546,11 +546,11 @@ class MinimalService(Node):
     def __init__(self):
         super().__init__('minimal_service')
         self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
-        self.get_logger().info("服务端已启动")
+        self.get_logger().info("Server is ready.")
 
     def add_two_ints_callback(self, request, response):
         response.sum = request.a + request.b
-        self.get_logger().info('收到请求: a=%d b=%d' % (request.a, request.b))
+        self.get_logger().info('Incoming request: a=%d b=%d' % (request.a, request.b))
         return response
 
 def main():
@@ -563,8 +563,8 @@ def main():
     rclpy.shutdown()
 ```
 
-#### 第三步：编写客户端
-新建 `src/py_service_pkg/py_service_pkg/client.py`：
+#### Step 3: Write the Client
+Create `src/py_service_pkg/py_service_pkg/client.py`:
 ```python
 import sys
 import rclpy
@@ -576,7 +576,7 @@ class MinimalClientAsync(Node):
         super().__init__('minimal_client_async')
         self.cli = self.create_client(AddTwoInts, 'add_two_ints')
         while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('服务未上线，等待中...')
+            self.get_logger().info('service not available, waiting again...')
         self.req = AddTwoInts.Request()
 
     def send_request(self, a, b):
@@ -590,19 +590,19 @@ def main():
     rclpy.init()
     client = MinimalClientAsync()
     
-    # 获取命令行参数
+    # Get command line arguments
     if len(sys.argv) < 3:
-        print("用法: ros2 run py_service_pkg client X Y")
+        print("Usage: ros2 run py_service_pkg client X Y")
         return
 
     response = client.send_request(int(sys.argv[1]), int(sys.argv[2]))
-    client.get_logger().info('计算结果: %d' % response.sum)
+    client.get_logger().info('Result: %d' % response.sum)
     client.destroy_node()
     rclpy.shutdown()
 ```
 
-#### 第四步：配置 setup.py
-打开 `src/py_service_pkg/setup.py`，修改 `entry_points`：
+#### Step 4: Configure setup.py
+Open `src/py_service_pkg/setup.py` and modify `entry_points`:
 
 ```python
     entry_points={
@@ -614,76 +614,75 @@ def main():
 ```
 
 
-#### 第五步：编译与运行
+#### Step 5: Build and Run
 
-**1. 编译工作空间**
-回到工作空间根目录，编译刚才创建的 Python 功能包：
+**1. Build Workspace**
+Return to the workspace root and build the Python package:
 ```bash
 cd ~/ros2_ws
 colcon build --packages-select py_service_pkg
 ```
 
-**2. 运行服务端 (Server)**
-打开**终端 1**，加载环境并启动服务端节点：
+**2. Run Server**
+Open **Terminal 1**, source the environment, and start the server node:
 ```bash
 cd ~/ros2_ws
 source install/setup.bash
-# 启动服务端
 ros2 run py_service_pkg server
 ```
-*预期输出：*
-`[INFO] [minimal_service]: 服务端已启动`
+*Expected Output:*
+`[INFO] [minimal_service]: Server is ready.`
 
-**3. 运行客户端 (Client)**
-打开**终端 2**，加载环境并运行客户端节点（发送请求计算 2 + 3）：
+**3. Run Client**
+Open **Terminal 2**, source the environment, and run the client node (requesting 2 + 3):
 ```bash
 cd ~/ros2_ws
 source install/setup.bash
-# 语法：ros2 run <包名> <客户端节点> <参数1> <参数2>
+# Syntax: ros2 run <package_name> <client_node> <arg1> <arg2>
 ros2 run py_service_pkg client 2 3
 ```
 
-*预期输出（终端 2 - 客户端）：*
-`[INFO] [minimal_client_async]: 计算结果: 5`
+*Expected Output (Terminal 2 - Client):*
+`[INFO] [minimal_client_async]: Result: 5`
 
-*预期输出（终端 1 - 服务端）：*
-`[INFO] [minimal_service]: 收到请求: a=2 b=3`
+*Expected Output (Terminal 1 - Server):*
+`[INFO] [minimal_service]: Incoming request: a=2 b=3`
 
 
 
 ---
 
-## 2.3 参数 (Parameters)
+## 2.3 Parameters
 
-### 1. 参数通信原理
+### 1. Parameter Communication Principles
 
-在 ROS 2 中，参数主要用于**节点的配置**（例如：设置机器人的移动速度、摄像头的分辨率、串口号等）。
+In ROS 2, parameters are primarily used for **node configuration** (e.g., setting robot movement speed, camera resolution, serial port numbers, etc.).
 
-**核心区别**：ROS 1 有一个全局的参数服务器（Parameter Server），而 **ROS 2 的参数直接存储在每个节点内部**。
-*   每个节点维护自己的参数。
-*   外部工具通过服务调用来读写节点的参数。
+**Core Difference**: ROS 1 had a global Parameter Server, whereas **ROS 2 parameters are stored locally within each node**.
+*   Each node maintains its own parameters.
+*   External tools access a node's parameters through service calls.
 
 ```mermaid
 graph LR
-    User[用户/Launch文件] -- 设置参数(Set) --> Node((ROS2节点))
-    Node -- 存储值 --> Memory[节点内存]
-    Node -- 获取参数(Get) --> User
+    User[User/Launch File] -- Set parameter --> Node((ROS2 Node))
+    Node -- Store value --> Memory[Node Memory]
+    Node -- Get parameter --> User
 ```
 
 ---
 
-### 2. 动手实践：参数编程 (Python)
+### 2. Hands-on Practice: Parameter Programming (Python)
 
-**目标**：创建一个节点，内部有一个 `my_str` 参数。我们将在节点运行时，通过命令行动态修改这个字符串，观察节点行为的变化。
+**Goal**: Create a node containing a `my_str` parameter. We will dynamically modify this string via the command line while the node is running and observe the change in the node's behavior.
 
-#### 第一步：创建功能包
+#### Step 1: Create the Package
 ```bash
 cd ~/ros2_ws/src
 ros2 pkg create --build-type ament_python py_param_pkg --dependencies rclpy
 ```
 
-#### 第二步：编写代码
-新建 `src/py_param_pkg/py_param_pkg/param_node.py`：
+#### Step 2: Write Code
+Create `src/py_param_pkg/py_param_pkg/param_node.py`:
 
 ```python
 import rclpy
@@ -693,19 +692,19 @@ class ParamNode(Node):
     def __init__(self):
         super().__init__('param_node')
         
-        # 1. 声明参数 (必须先声明才能使用)
-        # 参数名: 'my_str', 默认值: 'Hello World'
+        # 1. Declare parameters (must be declared before use)
+        # Parameter name: 'my_str', default value: 'Hello World'
         self.declare_parameter('my_str', 'Hello World')
         self.declare_parameter('my_int', 10)
 
-        # 创建定时器，每 1 秒打印一次当前参数值
+        # Create a timer to print the current parameter value every 1 second
         self.timer = self.create_timer(1.0, self.timer_callback)
 
     def timer_callback(self):
-        # 2. 获取参数当前的值
+        # 2. Get the current value of the parameter
         my_str_param = self.get_parameter('my_str').get_parameter_value().string_value
         
-        self.get_logger().info('当前参数值: %s' % my_str_param)
+        self.get_logger().info('Current parameter value: %s' % my_str_param)
 
 def main():
     rclpy.init()
@@ -717,8 +716,8 @@ def main():
     rclpy.shutdown()
 ```
 
-#### 第三步：配置 setup.py
-修改 `src/py_param_pkg/setup.py`：
+#### Step 3: Configure setup.py
+Modify `src/py_param_pkg/setup.py`:
 
 ```python
     entry_points={
@@ -728,32 +727,32 @@ def main():
     },
 ```
 
-#### 第四步：编译与运行
+#### Step 4: Build and Run
 ```bash
 cd ~/ros2_ws
 colcon build --packages-select py_param_pkg
 source install/setup.bash
 
-# 运行节点
+# Run node
 ros2 run py_param_pkg param_node
 ```
 
-#### 第五步：动态修改参数验证
-**保持上面的节点运行**，打开一个新的终端：
+#### Step 5: Dynamic Parameter Verification
+**Keep the above node running** and open a new terminal:
 
-1.  **查看参数列表**：
+1.  **List Parameters**:
     ```bash
     ros2 param list
     ```
-    你会看到 `/param_node` 下面有 `my_str` 等参数。
+    You will see `my_str` and other parameters under `/param_node`.
 
-2.  **动态修改参数**：
+2.  **Modify Parameter Dynamically**:
     ```bash
     ros2 param set /param_node my_str "Seeed Studio"
     ```
 
-3.  **观察第一个终端**：
-    你会发现日志输出立刻变了：
-    `[INFO] [param_node]: 当前参数值: Seeed Studio`
+3.  **Observe the first terminal**:
+    You will notice the log output changes immediately:
+    `[INFO] [param_node]: Current parameter value: Seeed Studio`
 
-这证明了我们成功在运行时动态配置了节点。
+This proves that we successfully configured the node dynamically during runtime.
