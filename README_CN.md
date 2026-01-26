@@ -31,7 +31,7 @@
 |[**ReachyMini 桌面机器人13讲:**](./Seeed_ReachyMini_Tutorial/1.中文/README.md)| 🟡 中级 | ReachyMini 课程 - 基础操作、接口教程及二次开发。|
 |**人形机器人:**|🟢 初级 | 小型舵机人形机器人课程（硬件驱动、动作与舞蹈编排）。|
 |**机械臂:**|🟡 中级 | StarAI 机械臂系统 - 运动学、动力学、模仿学习及基于 VLA 的强化学习。|
-|**轮足机器人:**|🟡 中级 | Stackforce 课程 - 混合机器人的平衡控制与 LQR 运动规划。|
+|[**轮足机器人:**](./Seeed_Mini_Wheeled_Legged_Robot/中文/README.md)|🟡 中级 | Stackforce 课程 - 混合机器人的平衡控制与 LQR 运动规划。|
 
 
 ---
