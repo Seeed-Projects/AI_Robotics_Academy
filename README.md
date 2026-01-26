@@ -36,7 +36,7 @@ Comprehensive curriculum covering ROS1/2, Simulation, Reinforcement Learning, an
 |[**ReachyMini Tutorial 13 Lectures**](./Seeed_ReachyMini_Tutorial/README.md) | 🟡 Intermediate  |Desktop robot basic operation, kinematics, and secondary development |
 |**Humanoid**:| 🟢 Beginner |  Small Servo Humanoid Robots Course (Hardware, Motion & Dance). |
 |**Robot Arm:**| 🟡 Intermediate  |  StarAI Arm System - Kinematics, Dynamics, Imitation Learning & VLA-based RL.| 
-|[**Wheel-Legged:**](./Seeed_Mini_Wheeled_Legged_Robot/English/README.md) | 🟡 Intermediate  | Stackforce Course - Balance control and LQR motion planning.| 
+|[**Wheel-Legged**](./Seeed_Mini_Wheeled_Legged_Robot/English/README.md) | 🟡 Intermediate  | Stackforce Course - Balance control and LQR motion planning.| 
 
 <br>
 
