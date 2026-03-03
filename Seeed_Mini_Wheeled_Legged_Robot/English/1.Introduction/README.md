@@ -12,7 +12,7 @@ It offers multiple control options, including remote control, Bluetooth, serial,
 
 <p align="center">
   <a href="https://www.seeedstudio.com/StackForce-Mini-Wheeled-Legged-Robot-p-6710.html">
-    <img src="https://img.shields.io/badge/Get%20One%20Now-4CAF50?style=for-the-badge" alt="🛒 Get One Now 🖱️" height="100">
+    <img src="https://img.shields.io/badge/Get%20One%20Now-4CAF50?style=for-the-badge" alt="🛒 Get One Now 🖱️" height="50">
   </a>
 </p>
 
