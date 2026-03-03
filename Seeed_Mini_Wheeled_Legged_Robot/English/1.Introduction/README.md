@@ -10,23 +10,11 @@ The **StackForce Mini Wheeled-Legged Robot** is a bipedal wheeled robot featurin
 
 It offers multiple control options, including remote control, Bluetooth, serial, and wireless communication, with full installation guides and video tutorials, making it a cost-effective desktop bipedal wheeled robot.
 
-<center>
-    <a href="https://www.seeedstudio.com/StackForce-Mini-Wheeled-Legged-Robot-p-6710.html" style="
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        border-radius: 8px;
-        font-weight: bold;
-        font-family: sans-serif;
-    ">
-    🛒 Get One Now 🖱️
-    </a>
-</center>
-
----
+<p align="center">
+  <a href="https://www.seeedstudio.com/StackForce-Mini-Wheeled-Legged-Robot-p-6710.html">
+    <img src="https://img.shields.io/badge/Get%20One%20Now-4CAF50?style=for-the-badge" alt="🛒 Get One Now 🖱️" height="50">
+  </a>
+</p>
 
 | Category            | Specification                                                                 |
 |---------------------|--------------------------------------------------------------------------------|
