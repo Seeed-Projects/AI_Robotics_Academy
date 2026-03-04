@@ -1,41 +1,5 @@
 ## Chapter 1. Introduction
 
-### Course Explanation
-
-This tutorial is a **systematic, engineering-oriented course on wheeled-legged robot motion control**, built around a real, fully functional wheeled-legged robot platform. It progressively presents a complete technical roadmap, from **fundamental self-balancing control** to **advanced motion control algorithms**.
-
-The course focuses on the core challenges of wheeled-legged robots, including:
-
-* Pitch self-balancing and closed-loop velocity control
-
-* Attitude control and terrain-adaptive algorithms
-
-* High-mobility motion enabled by parallel bionic leg control
-
-* Advanced motion control methods such as LQR and VMC
-
-* Training wheeled-legged robots using reinforcement learning
-
-* Other applications and algorithm development for wheeled-legged robots
-
-The tutorial combines mathematical derivations with strong engineering insight, emphasizing the workflow of **“physical meaning → control logic → deployable code.”&#x20;**&#x54;his approach helps learners truly understand *why* each control algorithm is designed, *what problem it solves*, and *how it is implemented on a real robot*.
-
-The course assumes that readers have basic experience in embedded systems or robotics, including but not limited to:
-
-* Practical use of IMUs, encoders, motors, and servos
-
-* A basic understanding of control concepts such as PID
-
-Building on this foundation, the course guides learners to develo&#x70;**&#x20;a complete understanding of wheeled-legged robot motion control**, enabling them to independently tune systems, improve algorithms, and even extend their work to **reinforcement learning** or **more advanced intelligent control methods**.
-
-After completing this tutorial, you will be able to:
-
-* Build a stable and controllable wheeled-legged robot self-balancing system from scratch
-
-* Master motion control methods that are proven and usable in real engineering practice
-
-* Establish a solid foundation for advanced research in robot control, reinforcement learning, or product-level development
-
 ### Introduction to Educational Robot Kits
 
 #### StackForce Mini Wheeled-Legged Robot&#xA;
@@ -46,7 +10,11 @@ The **StackForce Mini Wheeled-Legged Robot** is a bipedal wheeled robot featurin
 
 It offers multiple control options, including remote control, Bluetooth, serial, and wireless communication, with full installation guides and video tutorials, making it a cost-effective desktop bipedal wheeled robot.
 
-[International site purchasing channels🛒](https://www.seeedstudio.com/Fashionstar-Star-Arm-Viola-Violin-p-6497.html)    <span style="color: inherit; background-color: rgb(247,105,100)">（等待修改）</span>
+<p align="center">
+  <a href="https://www.seeedstudio.com/StackForce-Mini-Wheeled-Legged-Robot-p-6710.html">
+    <img src="https://img.shields.io/badge/Get%20One%20Now-4CAF50?style=for-the-badge" alt="🛒 Get One Now 🖱️" height="50">
+  </a>
+</p>
 
 | Category            | Specification                                                                 |
 |---------------------|--------------------------------------------------------------------------------|
@@ -64,30 +32,5 @@ Other references:
 
 wiki：[Stackforce\_Mini\_Wheeled\_Legged\_Robot](https://wiki.seeedstudio.com/stackforce_mini_wheeled_legged_robot/)
 
-#### StackForce High Torque Wheel-Legged Robot
+github: [Stackforce\_Mini\_Wheeled\_Legged\_Robot](https://github.com/Seeed-Projects/stackforce_mini_wheeled_legged_robot)
 
-![](<images/Wheeled-Leg Robot-image-1.png>)
-
-The **StackForce Large Wheeled-Leg Robot** uses precise kinematic models and adaptive algorithms to continuously monitor and adjust posture and speed, preventing tipping and rollover. This ensures stable operation on uneven terrain, during sharp turns, or on steep slopes, both indoors and outdoors.
-
-Equipped with brushless motors, it delivers smooth and reliable motion. The robot also includes comprehensive installation guides and video tutorials to help developers quickly get started and build innovative applications, such as implementing LQR control, reinforcement learning, or integrating vision-based perception and navigation.
-
-[International site purchasing channels🛒](https://www.seeedstudio.com/Fashionstar-Star-Arm-Viola-Violin-p-6497.html)    <span style="color: inherit; background-color: rgb(247,105,100)">（等待修改）</span>
-
-| Specification Item | Detailed Description                                      |
-|--------------------|-----------------------------------------------------------|
-| Main Control Board | StackForce Control Board                                  |
-| Motor Driver Board | 25A High-Power Brushless Motor Driver                     |
-| Power Supply       | 22.2V 6S Lithium Polymer Battery (RC Grade)                |
-| Motors             | Joint Motors + Wheel Motors                               |
-| Total Weight       | 10 kg                                                     |
-| Dimensions         | 50 cm × 56 cm (L × W), Height: 16–50 cm                    |
-
-
-Other references:
-
-wiki：[StackForce High Torque Wheel-Legged Robot](https://wiki.seeedstudio.com/lerobot_starai_arm/)
-
-### Github
-
-<span style="color: inherit; background-color: rgb(247,105,100)">（等待修改）</span>

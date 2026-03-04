@@ -2,7 +2,7 @@
 
 Welcome to the **Mini_Wheeled_Legged_Robot Tutorial Track** - Study and develop robot motion control algorithms.
 
-* [**Course Overview**](./2.English/README.md) - Full curriculum with 4 chapters
+* [**Course Overview**](./English/README.md) - Full curriculum with 4 chapters
 
 ---
 
