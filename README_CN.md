@@ -32,6 +32,7 @@
 |**人形机器人:**|🟢 初级 | 小型舵机人形机器人课程（硬件驱动、动作与舞蹈编排）。|
 |**机械臂:**|🟡 中级 | StarAI 机械臂系统 - 运动学、动力学、模仿学习及基于 VLA 的强化学习。|
 |[**轮足机器人**](./Seeed_Mini_Wheeled_Legged_Robot/中文/README.md)|🟡 中级 | Stackforce 课程 - 混合机器人的平衡控制与 LQR 运动规划。|
+|[**reBot 机械臂 VLA 教程**](./Seeed_reBot_Arm_Tutorial/README.md)|🟡 中级 | 在开源 reBot 机械臂（B601-DM / B601-RS）与 SO-ARM101 上运行 Pi0.5 等 SOTA 算法 — 理论、环境配置、训练与部署，附 SenseCraft Robotics 无代码方案。|
 
 
 ---

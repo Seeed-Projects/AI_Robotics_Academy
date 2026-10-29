@@ -37,6 +37,7 @@ Comprehensive curriculum covering ROS1/2, Simulation, Reinforcement Learning, an
 |**Humanoid**:| 🟢 Beginner |  Small Servo Humanoid Robots Course (Hardware, Motion & Dance). |
 |**Robot Arm:**| 🟡 Intermediate  |  StarAI Arm System - Kinematics, Dynamics, Imitation Learning & VLA-based RL.| 
 |[**Wheel-Legged**](./Seeed_Mini_Wheeled_Legged_Robot/English/README.md) | 🟡 Intermediate  | Stackforce Course - Balance control and LQR motion planning.| 
+|[**reBot Arm VLA Tutorials**](./Seeed_reBot_Arm_Tutorial/README.md) | 🟡 Intermediate  | Run Pi0.5 and other SOTA VLA/imitation-learning policies on the open-source reBot Arm (B601-DM / B601-RS) and SO-ARM101 — theory, setup, training & deployment, plus a SenseCraft Robotics no-code path.|
 
 <br>
 
