@@ -14,7 +14,10 @@ Each tutorial is self-contained: theory deep-dive, hardware list with shopping l
 | 4 | [How to Run SmolVLA on reBot Arm](./English/4.How_to_Run_SmolVLA_on_reBot_Arm/README.md) | `smolvla` · [arXiv:2506.01844](https://arxiv.org/abs/2506.01844) | ✅ Published |
 | 5 | [How to Run Pi0 (π0) on reBot Arm](./English/5.How_to_Run_Pi0_on_reBot_Arm/README.md) | `pi0` · [arXiv:2410.24164](https://arxiv.org/abs/2410.24164) | ✅ Published |
 | 6 | [How to Run Pi0-FAST (π0-FAST) on reBot Arm](./English/6.How_to_Run_Pi0_FAST_on_reBot_Arm/README.md) | `pi0fast` · [arXiv:24104959](https://arxiv.org/abs/24104959) | ✅ Published |
-| 7 | How to Run GR00T N1.5 on reBot Arm | `groot` | 🚧 Coming soon |
+| 7 | [How to Run GR00T N1.5 on reBot Arm](./English/7.How_to_Run_GR00T_N1.5_on_reBot_Arm/README.md) | `groot` · [arXiv:2503.14734](https://arxiv.org/abs/2503.14734) | ✅ Published |
+| 8 | How to Run EO-1 on reBot Arm | EO-1 | 🚧 Coming soon |
+| 9 | How to Run Evo-1 on reBot Arm | Evo-1 | 🚧 Coming soon |
+| 10 | How to Run WALL-OSS on reBot Arm | WALL-OSS | 🚧 Coming soon |
 
 ## Which arms are supported?
 
