@@ -10,7 +10,7 @@ Each tutorial is self-contained: theory deep-dive, hardware list with shopping l
 | :--- | :--- | :--- | :--- |
 | 1 | [How to Run Pi0.5 (π0.5) on reBot Arm](./English/1.How_to_Run_Pi0.5_on_reBot_Arm/README.md) | `pi05` · [arXiv:2504.16054](https://arxiv.org/abs/2504.16054) | ✅ Published |
 | 2 | [SenseCraft Robotics: No-Code Guide (Windows / macOS / Linux)](./English/2.SenseCraft_Robotics_No_Code_Guide/README.md) | GUI platform | ✅ Published |
-| 3 | How to Run ACT on reBot Arm | `act` | 🚧 Coming soon |
+| 3 | [How to Run ACT on reBot Arm](./English/3.How_to_Run_ACT_on_reBot_Arm/README.md) | `act` · [arXiv:2304.13705](https://arxiv.org/abs/2304.13705) | ✅ Published |
 | 4 | How to Run SmolVLA on reBot Arm | `smolvla` | 🚧 Coming soon |
 | 5 | How to Run Pi0 (π0) on reBot Arm | `pi0` | 🚧 Coming soon |
 | 6 | How to Run Pi0-FAST (π0-FAST) on reBot Arm | `pi0fast` | 🚧 Coming soon |
