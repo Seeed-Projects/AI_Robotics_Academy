@@ -16,6 +16,11 @@ Why this matters for your arm: a VLA that can answer "is it finished?" and "what
 
 > **Integration status:** EO-1 is a research foundation model with an open project page — it is not (yet) a one-flag LeRobot policy type like [`pi05`](../1.How_to_Run_Pi0.5_on_reBot_Arm/README.md) or [`act`](../3.How_to_Run_ACT_on_reBot_Arm/README.md). The workflow here is: understand the model → record your reBot demonstrations → fine-tune following the official release.
 
+> 📚 **Want the full tutorial and more resources?** This GitHub guide is a companion to the complete documentation on the **[Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)**, which is continuously updated and includes video walkthroughs, hardware assembly, and troubleshooting:
+> - **EO-1 theory deep-dive:** [EO-1 — Interleaved Multimodal Pre-Training](https://wiki.seeedstudio.com/robotics/paper_reading_eo1/)
+> - **Data-collection pipeline (wiki):** [reBot Arm B601-DM with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_dm_lerobot/) · [reBot Arm B601-RS with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) · [SO-ARM101 with LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/)
+> - **Hardware setup:** [reBot Arm B601-DM Getting Started](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/) · [reBot Arm B601-RS Getting Started](https://wiki.seeedstudio.com/rebot_b601_rs_getting_started/)
+
 Part of the [Seeed reBot Arm VLA tutorial series](../README.md) · [Seeed AI Robotics Academy](../../../README.md).
 
 ---

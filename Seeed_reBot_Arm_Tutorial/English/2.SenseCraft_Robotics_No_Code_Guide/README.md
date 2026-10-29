@@ -9,6 +9,11 @@
 This guide is ported from the official wiki tutorials:
 [Software Overview](https://wiki.seeedstudio.com/sensecraft_robotics/) · [SO-ARM101 Guide](https://wiki.seeedstudio.com/sensecraft_robotics_so_arm101/) · [reBot Arm 102 + B601-DM Guide](https://wiki.seeedstudio.com/sensecraft_robotics_rebot_arm_102_b601_dm/) · [reBot Arm 102 + B601-RS Guide](https://wiki.seeedstudio.com/sensecraft_robotics_rebot_arm_102_b601_rs/) · [FAQ](https://wiki.seeedstudio.com/sensecraft_robotics_common_issues/)
 
+> 📚 **Want the full tutorial and more resources?** This GitHub guide is a companion to the complete documentation on the **[Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)**, which is continuously updated and includes step-by-step screenshots, video walkthroughs, and troubleshooting:
+> - **Software overview:** [SenseCraft Robotics Software Overview](https://wiki.seeedstudio.com/sensecraft_robotics/)
+> - **Per-arm guides:** [SO-ARM101 Training Guide](https://wiki.seeedstudio.com/sensecraft_robotics_so_arm101/) · [reBot Arm 102 + B601-DM](https://wiki.seeedstudio.com/sensecraft_robotics_rebot_arm_102_b601_dm/) · [reBot Arm 102 + B601-RS](https://wiki.seeedstudio.com/sensecraft_robotics_rebot_arm_102_b601_rs/)
+> - **Troubleshooting:** [Common Issues FAQ](https://wiki.seeedstudio.com/sensecraft_robotics_common_issues/)
+
 It is the no-code companion to the [How to Run Pi0.5 on reBot Arm](../1.How_to_Run_Pi0.5_on_reBot_Arm/README.md) tutorial in this repository — same arms, same workflow stages, but everything happens in a GUI instead of a Python environment.
 
 ---

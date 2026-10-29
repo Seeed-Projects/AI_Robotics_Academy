@@ -16,6 +16,11 @@ Its signature capability is **long-horizon manipulation with reasoning**: table 
 
 > **Integration status:** WALL-OSS is a research foundation model (the paper announces open training code and checkpoints; [arXiv:2509.11766](https://arxiv.org/abs/2509.11766)). It is not a one-flag LeRobot policy type like [`pi05`](../1.How_to_Run_Pi0.5_on_reBot_Arm/README.md). The workflow here: understand the model → record reBot demonstrations → fine-tune following the official release.
 
+> 📚 **Want the full tutorial and more resources?** This GitHub guide is a companion to the complete documentation on the **[Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)**, which is continuously updated and includes video walkthroughs, hardware assembly, and troubleshooting:
+> - **WALL-OSS theory deep-dive:** [WALL-OSS — Embodied Reasoning & Robot Control](https://wiki.seeedstudio.com/robotics/paper_reading_wall_oss/)
+> - **Data-collection pipeline (wiki):** [reBot Arm B601-DM with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_dm_lerobot/) · [reBot Arm B601-RS with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) · [SO-ARM101 with LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/)
+> - **Hardware setup:** [reBot Arm B601-DM Getting Started](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/) · [reBot Arm B601-RS Getting Started](https://wiki.seeedstudio.com/rebot_b601_rs_getting_started/)
+
 Part of the [Seeed reBot Arm VLA tutorial series](../README.md) · [Seeed AI Robotics Academy](../../../README.md).
 
 ---

@@ -6,6 +6,8 @@ A growing series of algorithm-specific tutorials for running state-of-the-art Vi
 
 Each tutorial is self-contained: theory deep-dive, hardware list with shopping links, environment setup, and the full hands-on pipeline — calibrate → teleoperate → record a dataset → fine-tune → deploy on the real arm.
 
+> 📚 **More complete tutorials and resources live on the [Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)** — each guide below links to its wiki counterpart (video walkthroughs, hardware assembly, continuously updated troubleshooting). Key entries: [reBot Arm B601-DM with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_dm_lerobot/) · [reBot Arm B601-RS with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) · [SO-ARM101 with LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/) · [SenseCraft Robotics](https://wiki.seeedstudio.com/sensecraft_robotics/) · [Paper Reading course](https://wiki.seeedstudio.com/robotics/paper_reading_getting_started/)
+
 | # | Tutorial | Policy | Status |
 | :--- | :--- | :--- | :--- |
 | 1 | [How to Run Pi0.5 (π0.5) on reBot Arm](./English/1.How_to_Run_Pi0.5_on_reBot_Arm/README.md) | `pi05` · [arXiv:2504.16054](https://arxiv.org/abs/2504.16054) | ✅ Published |

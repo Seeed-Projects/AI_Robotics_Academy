@@ -15,6 +15,11 @@
 
 This tutorial shows you **the complete path from zero to a running π0.5 policy on a reBot Arm**: the theory behind the model, the hardware and shopping links, the software environment, teleoperation and data collection, fine-tuning `pi05` on your own dataset, and finally running the trained policy on the real arm.
 
+> 📚 **Want the full tutorial and more resources?** This GitHub guide is a companion to the complete documentation on the **[Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)**, which is continuously updated and includes video walkthroughs, hardware assembly, and troubleshooting:
+> - **Full wiki tutorials:** [reBot Arm B601-DM with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_dm_lerobot/) · [reBot Arm B601-RS with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) · [SO-ARM101 with LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/)
+> - **π0.5 theory deep-dive:** [π0.5 — Open-World Generalization](https://wiki.seeedstudio.com/robotics/paper_reading_pi05/)
+> - **Hardware setup:** [reBot Arm B601-DM Getting Started](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/) · [reBot Arm B601-RS Getting Started](https://wiki.seeedstudio.com/rebot_b601_rs_getting_started/)
+
 It is part of the [Seeed AI Robotics Academy](../../README.md) — a free, open course series paired with the **100% open-source reBot robotic arm** (commercial use and reproduction allowed). If this guide helps you, please ⭐ star [reBot-DevArm](https://github.com/Seeed-Projects/reBot-DevArm/) and [AI_Robotics_Academy](https://github.com/Seeed-Projects/AI_Robotics_Academy).
 
 > ✅ **Verified hardware:** everything below runs on the **reBot Arm B601-DM**, **reBot Arm B601-RS**, and **SO-ARM101 (SO-101)** leader-follower kits. The same workflow applies to any LeRobot-compatible arm.

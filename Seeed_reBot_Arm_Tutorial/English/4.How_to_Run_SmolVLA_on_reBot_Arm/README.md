@@ -15,6 +15,11 @@
 
 In LeRobot it is the policy `smolvla`, fine-tuned from the pretrained checkpoint `lerobot/smolvla_base`. This tutorial covers the theory, setup, and the full pipeline: calibrate → teleoperate → record demonstrations → fine-tune SmolVLA → run it on the real arm.
 
+> 📚 **Want the full tutorial and more resources?** This GitHub guide is a companion to the complete documentation on the **[Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)**, which is continuously updated and includes video walkthroughs, hardware assembly, and troubleshooting:
+> - **Full wiki tutorials:** [reBot Arm B601-DM with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_dm_lerobot/) · [reBot Arm B601-RS with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) · [SO-ARM101 with LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/)
+> - **SmolVLA theory deep-dive:** [SmolVLA — Affordable Vision-Language-Action Models](https://wiki.seeedstudio.com/robotics/paper_reading_smolvla/)
+> - **Hardware setup:** [reBot Arm B601-DM Getting Started](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/) · [reBot Arm B601-RS Getting Started](https://wiki.seeedstudio.com/rebot_b601_rs_getting_started/)
+
 Part of the [Seeed reBot Arm VLA tutorial series](../README.md) · [Seeed AI Robotics Academy](../../../README.md). If this guide helps you, please ⭐ star [reBot-DevArm](https://github.com/Seeed-Projects/reBot-DevArm/).
 
 ---

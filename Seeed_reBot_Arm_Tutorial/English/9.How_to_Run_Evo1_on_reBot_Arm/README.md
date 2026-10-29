@@ -14,6 +14,11 @@
 
 Why it matters for low-cost arms: at 0.77B parameters it reports **16.4 Hz inference in 2.3 GB VRAM** on a consumer GPU (RTX 4090-class) with **78% average real-task success** — outperforming compared baselines including π0 (73%, 17.9 GB) and SmolVLA (50%, 2.0 GB) in the paper's real-world comparison — and it records data in **LeRobot format**, the same pipeline you already use on a reBot Arm.
 
+> 📚 **Want the full tutorial and more resources?** This GitHub guide is a companion to the complete documentation on the **[Seeed Studio Wiki](https://wiki.seeedstudio.com/robotics_page/)**, which is continuously updated and includes video walkthroughs, hardware assembly, and troubleshooting:
+> - **Evo-1 theory deep-dive:** [Evo-1 — Lightweight VLA](https://wiki.seeedstudio.com/robotics/paper_reading_evo1/)
+> - **Data-collection pipeline (wiki):** [reBot Arm B601-DM with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_dm_lerobot/) · [reBot Arm B601-RS with LeRobot](https://wiki.seeedstudio.com/rebot_arm_b601_rs_lerobot/) · [SO-ARM101 with LeRobot](https://wiki.seeedstudio.com/lerobot_so100m_new/)
+> - **Hardware setup:** [reBot Arm B601-DM Getting Started](https://wiki.seeedstudio.com/rebot_b601_dm_getting_started/) · [reBot Arm B601-RS Getting Started](https://wiki.seeedstudio.com/rebot_b601_rs_getting_started/)
+
 Part of the [Seeed reBot Arm VLA tutorial series](../README.md) · [Seeed AI Robotics Academy](../../../README.md).
 
 ---
